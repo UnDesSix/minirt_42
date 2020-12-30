@@ -6,23 +6,27 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/29 10:30:04 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 19:26:11 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
-//#define W 1000
-//#define H 1000
 
 
 void	get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 {
 	if (obj->id == SPHERE)
 		ft_sphere(rt, obj, ori, dir);
-	if (obj->id == PLANE)
+	else if (obj->id == PLANE)
 		ft_plane(rt, obj, ori, dir);
-	if (obj->id == TRIANGLE)
+	else if (obj->id == TRIANGLE)
 		ft_triangle(rt, obj, ori, dir);
+/*
+	else if (obj->id == SQUARE)
+		ft_square(rt, obj, ori, dir);
+	else if (obj->id == CYLINDER)
+		ft_cylinder(rt, obj, ori, dir);
+*/
 }
 
 void	fill_image(t_mini_rt *rt)
@@ -47,38 +51,18 @@ void	fill_image(t_mini_rt *rt)
 t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
 {
 	t_vec	pixel;
-	t_vec	dir;
-	(void)camera;
+	t_vec	tmp;
 
 	pixel.x = x - (rt->res.w / 2);
 	pixel.y = (rt->res.h / 2) - y;
 	pixel.z = rt->res.w / (2 * tan((camera.fov * M_PI / 180 / 2)));
-	dir.x = vec_dot(pixel, rt->right);
-	dir.y = vec_dot(pixel, rt->up);
-	dir.z = vec_dot(pixel, rt->foward);
-	return (dir);
-}
-*/
-
-
-t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
-{
-	t_vec	pixel;
-	t_vec	tmp;
-	float	scale;
-	float	scene_ratio;
-
-	scene_ratio = rt->res.w / rt->res.h;
-	scale = tan((camera.fov * M_PI / 180 / 2));
-	pixel.x = (2 * (x + 0.5) / rt->res.w - 1) * scene_ratio * scale;
-	pixel.y = (1 - 2 * (y + 0.5) / rt->res.h) * scale;
-	pixel.z = 1;
 	tmp = pixel;
 	pixel.x = tmp.x * rt->right.x + tmp.y * rt->up.x + tmp.z * rt->foward.x;
 	pixel.y = tmp.x * rt->right.y + tmp.y * rt->up.y + tmp.z * rt->foward.y;
 	pixel.z = tmp.x * rt->right.z + tmp.y * rt->up.z + tmp.z * rt->foward.z;
 	return (pixel);
 }
+*/
 
 void	run_mini_rt(t_mini_rt *rt)
 {
@@ -106,10 +90,12 @@ void	run_mini_rt(t_mini_rt *rt)
 			while (k < rt->light_nb)
 				apply_light(rt, rt->cam[0].pov, dir, rt->light[k++]);
 			fill_image(rt);
+			printf("\rRendering image [%3d%%]", ((x + (y * rt->res.w)) * 100) / (rt->res.w * rt->res.h));
 			x++;
 		}
 		y++;
 	}
+		printf("\rRendering image [100%%] - \033[1;32mDone\033[0m\033[1m\n");
 }
 
 int		main(int argc, char **argv)
@@ -118,6 +104,7 @@ int		main(int argc, char **argv)
 
 	(void)argc;
 
+	
 	//initialize nb :
 	rt.cam = NULL;
 	rt.light = NULL;
@@ -145,3 +132,24 @@ int		main(int argc, char **argv)
 		free(rt.obj);
 	return (0);
 }
+
+
+t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
+{
+	t_vec	pixel;
+	t_vec	tmp;
+	float	scale;
+	float	scene_ratio;
+
+	scene_ratio = rt->res.w / rt->res.h;
+	scale = tan((camera.fov * M_PI / 180 / 2.0));
+	pixel.x = (2 * (x + 0.5) / rt->res.w - 1) * scene_ratio * scale;
+	pixel.y = (1 - 2 * (y + 0.5) / rt->res.h) * scale;
+	pixel.z = 1;
+	tmp = pixel;
+	pixel.x = tmp.x * rt->right.x + tmp.y * rt->up.x + tmp.z * rt->foward.x;
+	pixel.y = tmp.x * rt->right.y + tmp.y * rt->up.y + tmp.z * rt->foward.y;
+	pixel.z = tmp.x * rt->right.z + tmp.y * rt->up.z + tmp.z * rt->foward.z;
+	return (pixel);
+}
+
