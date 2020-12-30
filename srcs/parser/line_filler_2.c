@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:26:44 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 20:15:30 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 20:33:05 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	sphere_filler(char **tab, t_mini_rt *rt)
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 1;
+	rt->obj[i].id = i;
 	fill_points(&rt->obj[i].point1, tab[1]);
 	rt->obj[i].diameter = ft_atof(tab[2]);
 	fill_colors(&rt->obj[i].color, tab[3]);
@@ -31,6 +32,7 @@ int	plane_filler(char **tab, t_mini_rt *rt)
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 2;
+	rt->obj[i].id = i;
 	fill_points(&rt->obj[i].point1, tab[1]);
 	fill_points(&rt->obj[i].orient, tab[2]);
 	fill_colors(&rt->obj[i].color, tab[3]);
@@ -44,6 +46,7 @@ int	square_filler(char **tab, t_mini_rt *rt)
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 3;
+	rt->obj[i].id = i;
 	fill_points(&rt->obj[i].point1, tab[1]);
 	fill_points(&rt->obj[i].orient, tab[2]);
 	rt->obj[i].height = ft_atof(tab[3]);
@@ -58,6 +61,7 @@ int	cylinder_filler(char **tab, t_mini_rt *rt)
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 4;
+	rt->obj[i].id = i;
 	fill_points(&rt->obj[i].point1, tab[1]);
 	fill_points(&rt->obj[i].orient, tab[2]);
 	fill_colors(&rt->obj[i].color, tab[3]);
@@ -73,6 +77,7 @@ int	triangle_filler(char **tab, t_mini_rt *rt)
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 5;
+	rt->obj[i].id = i;
 	fill_points(&rt->obj[i].point1, tab[1]);
 	fill_points(&rt->obj[i].point2, tab[2]);
 	fill_points(&rt->obj[i].point3, tab[3]);

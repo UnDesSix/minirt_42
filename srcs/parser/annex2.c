@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:52:17 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 20:14:30 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 20:37:16 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	print_all_nb(t_mini_rt *rt)
 		if (rt->obj[i].type == SPHERE)
 		{
 			printf("  Object : %d (Sphere) :\n", i);
+			printf("     ID      : %d\n",  rt->obj[i].id);
 			printf("     Points  : %2.2f, %2.2f, %2.2f \n", rt->obj[i].point1.x, rt->obj[i].point1.y, rt->obj[i].point1.z);
 			printf("     Diameter: %2.2f\n", rt->obj[i].diameter);
 			printf("     Colors  : %d, %d, %d \n", rt->obj[i].color.r, rt->obj[i].color.g, rt->obj[i].color.b);
@@ -60,6 +61,7 @@ void	print_all_nb(t_mini_rt *rt)
 		else if (rt->obj[i].type == PLANE)
 		{
 			printf("  Object : %d (Plane) :\n", i);
+			printf("     ID      : %d\n",  rt->obj[i].id);
 			printf("     Points  : %2.2f, %2.2f, %2.2f \n", rt->obj[i].point1.x, rt->obj[i].point1.y, rt->obj[i].point1.z);
 			printf("     Orient  : %2.2f, %2.2f, %2.2f \n", rt->obj[i].orient.x, rt->obj[i].orient.y, rt->obj[i].orient.z);
 			printf("     Colors  : %d, %d, %d \n", rt->obj[i].color.r, rt->obj[i].color.g, rt->obj[i].color.b);
@@ -67,6 +69,7 @@ void	print_all_nb(t_mini_rt *rt)
 		else if (rt->obj[i].type == SQUARE)
 		{
 			printf("  Object : %d (Square) :\n", i);
+			printf("     ID      : %d\n",  rt->obj[i].id);
 			printf("     Points  : %2.2f, %2.2f, %2.2f \n", rt->obj[i].point1.x, rt->obj[i].point1.y, rt->obj[i].point1.z);
 			printf("     Orient  : %2.2f, %2.2f, %2.2f \n", rt->obj[i].orient.x, rt->obj[i].orient.y, rt->obj[i].orient.z);
 			printf("     Height  : %2.2f\n", rt->obj[i].height);
@@ -75,6 +78,7 @@ void	print_all_nb(t_mini_rt *rt)
 		else if (rt->obj[i].type == CYLINDER)
 		{
 			printf("  Object : %d (Cylinder) :\n", i);
+			printf("     ID      : %d\n",  rt->obj[i].id);
 			printf("     Points  : %2.2f, %2.2f, %2.2f \n", rt->obj[i].point1.x, rt->obj[i].point1.y, rt->obj[i].point1.z);
 			printf("     Orient  : %2.2f, %2.2f, %2.2f \n", rt->obj[i].orient.x, rt->obj[i].orient.y, rt->obj[i].orient.z);
 			printf("     Diameter: %2.2f\n", rt->obj[i].diameter);
@@ -84,6 +88,7 @@ void	print_all_nb(t_mini_rt *rt)
 		else if (rt->obj[i].type == TRIANGLE)
 		{
 			printf("  Object : %d (Triangle) :\n", i);
+			printf("     ID      : %d\n",  rt->obj[i].id);
 			printf("     Points1 : %2.2f, %2.2f, %2.2f \n", rt->obj[i].point1.x, rt->obj[i].point1.y, rt->obj[i].point1.z);
 			printf("     Points2 : %2.2f, %2.2f, %2.2f \n", rt->obj[i].point2.x, rt->obj[i].point2.y, rt->obj[i].point2.z);
 			printf("     Points3 : %2.2f, %2.2f, %2.2f \n", rt->obj[i].point3.x, rt->obj[i].point3.y, rt->obj[i].point3.z);

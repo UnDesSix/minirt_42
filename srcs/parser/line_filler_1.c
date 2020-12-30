@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 15:44:43 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 20:16:04 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 20:33:43 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ fct	identify_type_2(char *s)
 	s_len = ft_strlen(s);
 	if (s_len == 1 && !strncmp(s, "R", 1))
 		return (resolution_filler);
-	if (s_len == 1 && !strncmp(s, "A", 1))
+	else if (s_len == 1 && !strncmp(s, "A", 1))
 		return (ambient_filler);
-	if (s_len == 1 && !strncmp(s, "c", 1))
+	else if (s_len == 1 && !strncmp(s, "c", 1))
 		return (camera_filler);
-	if (s_len == 1 && !strncmp(s, "l", 1))
+	else if (s_len == 1 && !strncmp(s, "l", 1))
 		return (light_filler);
-	if (s_len == 2 && !strncmp(s, "sp", 2))
+	else if (s_len == 2 && !strncmp(s, "sp", 2))
 		return (sphere_filler);
-	if (s_len == 2 && !strncmp(s, "pl", 2))
+	else if (s_len == 2 && !strncmp(s, "pl", 2))
 		return (plane_filler);
-	if (s_len == 2 && !strncmp(s, "sq", 2))
+	else if (s_len == 2 && !strncmp(s, "sq", 2))
 		return (square_filler);
-	if (s_len == 2 && !strncmp(s, "cy", 2))
+	else if (s_len == 2 && !strncmp(s, "cy", 2))
 		return (cylinder_filler);
-	if (s_len == 2 && !strncmp(s, "tr", 2))
+	else if (s_len == 2 && !strncmp(s, "tr", 2))
 		return (triangle_filler);
 	return (0);
 }
