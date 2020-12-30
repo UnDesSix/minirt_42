@@ -11,9 +11,9 @@
 
 typedef struct	s_vec
 {
-	float	x;
-	float	y;
-	float	z;
+	double	x;
+	double	y;
+	double	z;
 }				t_vec;
 
 
@@ -40,21 +40,25 @@ typedef struct	s_ray
 
 typedef struct	s_solve
 {
-	float	a;
-	float	b;
-	float	c;
-	float	delta;
-	float	t1;
-	float	t2;
-	float	d1;
-	float	d2;
+	double	a;
+	double	b;
+	double	c;
+	double	delta;
+	double	t1;
+	double	t2;
+	double	d1;
+	double	d2;
 	t_vec	sub;
 	t_vec	cross;
+	t_vec	v1;
+	t_vec	v2;
+	t_vec	tvec;
+	t_vec	pvec;
 }				t_solve;
 
 typedef struct	s_ambient
 {
-	float	ratio;
+	double	ratio;
 	t_color	color;
 }				t_ambient;
 
@@ -71,13 +75,13 @@ typedef struct	s_camera
 {
 	t_vec	pov;
 	t_vec	orient;
-	float	fov;
+	double	fov;
 }				t_camera;
 
 typedef struct	s_light
 {
 	t_vec	point;
-	float	ratio;
+	double	ratio;
 	t_color	color;
 }				t_light;
 
@@ -88,9 +92,9 @@ typedef struct	s_obj
 	t_vec	point2;
 	t_vec	point3;
 	t_color	color;
-	float	diameter;
+	double	diameter;
 	t_vec	orient;
-	float	height;
+	double	height;
 }				t_obj;
 
 typedef struct	s_mini_rt
@@ -122,9 +126,9 @@ typedef struct	s_mini_rt
 	
 	t_obj		*last_obj;
 
-	float		t;
+	double		t;
 	t_color		tmp_color;
-	float		intensity;
+	double		intensity;
 	int			flag;
 }				t_mini_rt;
 
