@@ -7,8 +7,8 @@ MLX_PATH	=	./libs/minilibx-linux/
 MLX_NAME	=	$(MLX_PATH)libmlx.a
 MLX_INC		=	-I$(MLX_PATH)
 
-LIBC_PATH	=	./libs/libft/
-LIBC_NAME	=	$(LIBC_PATH)libft.a
+LIBC_PATH	=	./libs/printf/
+LIBC_NAME	=	$(LIBC_PATH)libftprintf.a
 LIBC_INC	=	-I$(LIBC_PATH)
 
 SRCS_PATH	=	./srcs/
@@ -49,14 +49,16 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			@make --silent -C $(MLX_PATH)
 			@make --silent -C $(LIBC_PATH)
-
 			@$(CC) $(OBJS) $(MLX_NAME) $(LIBC_NAME) -L$(MLX_PATH) -L/usr/lib -L$(LIBC_PATH) $(LIBC_INC) $(MLX_INC) -I$(INC) -lXext -lX11 -lm -lz -o $(NAME) 
 #			$(CC) $(OBJS) $(LIBC_NAME) -L$(LIBC_PATH) $(LIB_INC) -I$(INC) -o $(NAME)
+			$(info minirt compiled)
 
 clean:
+			@make clean --silent -C $(LIBC_PATH)
 			@$(RM) $(OBJS)
 
 fclean:		clean
+			@make fclean --silent -C $(LIBC_PATH)
 			@$(RM) $(NAME)
 
 re:			fclean all
