@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 19:26:11 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 20:11:57 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 void	get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 {
-	if (obj->id == SPHERE)
+	if (obj->type == SPHERE)
 		ft_sphere(rt, obj, ori, dir);
-	else if (obj->id == PLANE)
+	else if (obj->type == PLANE)
 		ft_plane(rt, obj, ori, dir);
-	else if (obj->id == TRIANGLE)
+	else if (obj->type == TRIANGLE)
 		ft_triangle(rt, obj, ori, dir);
 /*
-	else if (obj->id == SQUARE)
+	else if (obj->type == SQUARE)
 		ft_square(rt, obj, ori, dir);
-	else if (obj->id == CYLINDER)
+	else if (obj->type == CYLINDER)
 		ft_cylinder(rt, obj, ori, dir);
 */
 }

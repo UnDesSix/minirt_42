@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 15:12:58 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/21 18:07:43 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 20:11:53 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int			parser(char *argv, t_mini_rt *rt);
 
 
 // Elements checker
-fct			identify_id(char *s);
+fct			identify_type(char *s);
 int			resolution_checker(char **tab, t_mini_rt *rt);
 int			ambient_checker(char **tab, t_mini_rt *rt);
 int			camera_checker(char **tab, t_mini_rt *rt);
@@ -68,7 +68,7 @@ int			triangle_checker(char **tab, t_mini_rt *rt);
 int			cylinder_checker(char **tab, t_mini_rt *rt);
 
 // Elements filler
-fct			identify_id_2(char *s);
+fct			identify_type_2(char *s);
 int			resolution_filler(char **tab, t_mini_rt *rt);
 int			ambient_filler(char **tab, t_mini_rt *rt);
 int			camera_filler(char **tab, t_mini_rt *rt);

@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/26 13:57:41 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 20:17:33 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int		split_line_1(char *line, t_mini_rt *rt)
 	tab = ft1_split(line, " \f\r\r\t\v");
 	if (tab[0])
 	{
-		if ((line_checker = identify_id(tab[0])))
+		if ((line_checker = identify_type(tab[0])))
 		{
 			if ((error_code = line_checker(tab, rt)) != 1)
-				printf("Error code : %3d - Line %d\n", error_code, i);
+				ft_printf("Error code : %3d - Line %d\n", error_code, i);
 		}
 		else
 		{
 			error_code = -404;
-			printf("Error code : 404 - Line %d\n", i);
+			ft_printf("Error code : 404 - Line %d\n", i);
 		}
 	}
 	free_tab(tab);
@@ -47,7 +47,7 @@ void	split_line_2(char *line, t_mini_rt *rt)
 	tab = ft1_split(line, " \f\r\r\t\v");
 	if (tab[0])
 	{
-		if ((line_filler = identify_id_2(tab[0])))
+		if ((line_filler = identify_type_2(tab[0])))
 			line_filler(tab, rt);
 	}
 	free_tab(tab);
@@ -100,12 +100,12 @@ int		parser(char *file_name, t_mini_rt *rt)
 {
 	if (parser_part_1(file_name, rt) != 1)
 	{
-//		printf("Parsor error\n");
+		ft_printf("Parsor error\n");
 		return (0);
 	}
 	if (malloc_elem(rt) != 1)
 	{
-//		printf("Malloc error\n");
+		ft_printf("Malloc error\n");
 		return (0);
 	}
 	parser_part_2(file_name, rt);

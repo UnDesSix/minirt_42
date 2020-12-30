@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 15:44:43 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/21 11:05:12 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 20:16:04 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mini_rt.h"
 
-fct	identify_id_2(char *s)
+fct	identify_type_2(char *s)
 {
 	size_t	s_len;
 

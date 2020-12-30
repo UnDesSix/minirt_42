@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:02 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 19:21:23 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/30 20:17:58 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,16 @@ float	min_max_colors(float color)
 
 void	apply_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 {
-	if (rt->last_obj->id == SPHERE)
+	if (rt->last_obj->type == SPHERE)
 		sphere_light(rt, ori, dir, light);
-	if (rt->last_obj->id == PLANE)
+	if (rt->last_obj->type == PLANE)
 		plane_light(rt, ori, dir, light);
 /*
-	if (rt->last_obj->id == SQUARE)
+	if (rt->last_obj->type == SQUARE)
 		square_light(rt, ori, dir, light);
-	if (rt->last_obj->id == CYLINDER)
+	if (rt->last_obj->type == CYLINDER)
 		cylinder_light(rt, ori, dir, light);
 */
-	if (rt->last_obj->id == TRIANGLE)
+	if (rt->last_obj->type == TRIANGLE)
 		triangle_light(rt, ori, dir, light);
 }
