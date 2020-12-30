@@ -34,6 +34,7 @@ SRCS_NAME	=	main.c \
 				plane.c \
 				triangle.c \
 				light_apply.c \
+				visibility.c \
 				light.c
 
 SRCS		=	$(addprefix $(SRCS_PATH), $(SRCS_NAME))

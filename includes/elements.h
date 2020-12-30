@@ -128,6 +128,7 @@ typedef struct	s_mini_rt
 	t_obj		*last_obj;
 
 	float		t;
+	float		vis_t1;
 	t_color		tmp_color;
 	float		intensity;
 	int			flag;
