@@ -1,0 +1,12 @@
+- ombres DE toutes les formes SUR toute les formes
+- couleurs des lights (amb et light)
+- Carre, Cylindre
+- Gestion de la fenetre MLX (taille, fermeture et reduction)
+- MultiCam
+- Message d'erreurs propres
+- Gerer segfault quand erreur dans la map
+- Erreur suivante : Map incomplete ou trop d'ob (genre plsr amb)
+- Binding des touches
+- Opti generale si possible
+- Tout mettre a la norme v3.0
+- Bonus : antialiaising
