@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:02 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 20:17:58 by mlarboul         ###   ########.fr       */
+/*   Updated: 2020/12/31 15:09:51 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ void	apply_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 	if (rt->last_obj->type == SPHERE)
 		sphere_light(rt, ori, dir, light);
 	if (rt->last_obj->type == PLANE)
+{
+		
 		plane_light(rt, ori, dir, light);
+}
 /*
 	if (rt->last_obj->type == SQUARE)
 		square_light(rt, ori, dir, light);
