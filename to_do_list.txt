@@ -5,7 +5,9 @@
 - MultiCam
 - Message d'erreurs propres
 - Gerer segfault quand erreur dans la map
-- Erreur suivante : Map incomplete ou trop d'ob (genre plsr amb)
+- Erreur fichier : Map incomplete
+- Erreur fichier : Trop d'ob (genre plsr amb)
+- Erreur fichier : Format fichier incorrect
 - Binding des touches
 - Opti generale si possible
 - Tout mettre a la norme v3.0
