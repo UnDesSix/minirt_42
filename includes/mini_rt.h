@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 21:34:37 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/01 20:49:52 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		plane_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 void		triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 
 int			is_visible(t_mini_rt *rt, t_light light, t_vec point);
-float		ft_sphere_light(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir);
+double		ft_sphere_light(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir);
 
 /*
 // Color functions
@@ -58,20 +58,20 @@ void		amb_light(t_mini_rt *rt);
 void		init_tmp_color(t_mini_rt *rt);
 void		init_color(t_mini_rt *rt);
 t_color		color_add(t_color c1, t_color c2);
-t_color		color_mult(t_color c1, float nb);
-float		min_max_colors(float color);
+t_color		color_mult(t_color c1, double nb);
+double		min_max_colors(double color);
 
 /*
 // Vectors formulas
 */
 t_vec		vec_add(t_vec v1, t_vec v2);
 t_vec		vec_sub(t_vec v1, t_vec v2);
-t_vec		vec_mult(t_vec v1, float nb);
-t_vec		vec_div(t_vec v1, float nb);
-float		vec_dot(t_vec v1, t_vec v2);
+t_vec		vec_mult(t_vec v1, double nb);
+t_vec		vec_div(t_vec v1, double nb);
+double		vec_dot(t_vec v1, t_vec v2);
 t_vec		vec_cross(t_vec v1, t_vec v2);
 t_vec		vec_normalize(t_vec v);
-float		vec_length(t_vec v);
-t_vec		vec_create(float x, float y, float z);
+double		vec_length(t_vec v);
+t_vec		vec_create(double x, double y, double z);
 
 #endif
