@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:02 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/31 15:09:51 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/01 20:49:12 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_color	color_add(t_color c1, t_color c2)
 	return (c);
 }
 
-t_color	color_mult(t_color c1, float nb)
+t_color	color_mult(t_color c1, double nb)
 {
 	t_color	c;
 
@@ -49,7 +49,7 @@ t_color	color_mult(t_color c1, float nb)
 	return (c);
 }
 
-float	min_max_colors(float color)
+double	min_max_colors(double color)
 {
 	if (color > 255)
 		return (255);

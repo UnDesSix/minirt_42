@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 09:39:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/31 15:18:18 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/01 20:50:04 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int		is_visible(t_mini_rt *rt, t_light light, t_vec ori)
 	int		k;
 	t_vec	dir;
 	t_vec	point2;
-	float	l1;
-	float	l2;
+	double	l1;
+	double	l2;
 
 	k = 0;
 	dir = vec_normalize(vec_sub(light.point, ori));

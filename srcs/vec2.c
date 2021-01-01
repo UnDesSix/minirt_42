@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:22:44 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 19:21:38 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/01 20:49:40 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_vec	vec_cross(t_vec v1, t_vec v2)
 t_vec	vec_normalize(t_vec v)
 {
 	t_vec	norm;
-	float	len;
+	double	len;
 
 	len = vec_length(v);
 	norm.x = v.x / len;
@@ -34,12 +34,12 @@ t_vec	vec_normalize(t_vec v)
 	return (norm);
 }
 
-float	vec_length(t_vec v)
+double	vec_length(t_vec v)
 {
 	return (sqrt(pow(v.x, 2) + pow(v.y, 2) + pow(v.z, 2)));
 }
 
-t_vec	vec_create(float x, float y, float z)
+t_vec	vec_create(double x, double y, double z)
 {
 	t_vec	v;
 

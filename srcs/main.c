@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/31 14:53:11 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/01 18:08:56 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ void	run_mini_rt(t_mini_rt *rt)
 			while (k < rt->light_nb)
 				apply_light(rt, rt->cam[0].pov, dir, rt->light[k++]);
 			fill_image(rt);
-//			printf("\rRendering image [%3d%%]", ((x + (y * rt->res.w)) * 100) / (rt->res.w * rt->res.h));
+			printf("\rRendering image [%3d%%]", ((x + (y * rt->res.w)) * 100) / (rt->res.w * rt->res.h));
 			x++;
 		}
 		y++;
 	}
-//		printf("\rRendering image [100%%] - \033[1;32mDone\033[0m\033[1m\n");
+		printf("\rRendering image [100%%] - \033[1;32mDone\033[0m\033[1m\n");
 }
 
 int		main(int argc, char **argv)

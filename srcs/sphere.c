@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/31 15:33:52 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/01 20:49:56 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_sphere(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
 {
 	t_solve	s;
-	float	delta;
+	double	delta;
 
 	s.sub = vec_sub(ori, sphere->point1);
 	s.a = pow(vec_length(dir), 2);
@@ -41,10 +41,10 @@ void	ft_sphere(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
 	}
 }
 
-float	ft_sphere_light(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
+double	ft_sphere_light(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
 {
 	t_solve	s;
-	float	delta;
+	double	delta;
 
 	s.sub = vec_sub(ori, sphere->point1);
 	s.a = pow(vec_length(dir), 2);
