@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 10:59:33 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/02 12:20:41 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ int		parser_part_1(char *file_name, t_mini_rt *rt)
 	error_code = -500;
 	while (get_next_line(fd, &line))
 	{
-		error_code = split_line_1(line, rt);
+		
+		if (line[0] != '#')
+			error_code = split_line_1(line, rt);
 		free(line);
 	}
 	if (line)
@@ -87,7 +89,8 @@ int		parser_part_2(char *file_name, t_mini_rt *rt)
 	error_code = -500;
 	while (get_next_line(fd, &line))
 	{
-		split_line_2(line, rt);
+		if (line[0] != '#')
+			split_line_2(line, rt);
 		free(line);
 	}
 	if (line)
