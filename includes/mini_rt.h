@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/01 20:49:52 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:14:05 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		plane_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 void		triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 
 int			is_visible(t_mini_rt *rt, t_light light, t_vec point);
-double		ft_sphere_light(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir);
+double		sphere_shaders(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir);
 
 /*
 // Color functions

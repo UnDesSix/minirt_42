@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/01 20:49:56 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:14:14 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_sphere(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
 	}
 }
 
-double	ft_sphere_light(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
+double	sphere_shaders(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 	double	delta;
