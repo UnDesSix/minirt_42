@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 23:17:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/01 21:25:50 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/02 16:13:41 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,24 @@ void	plane_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 				(light.ratio * vec_dot(v_normal, v_light) * visib /
 					pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 //					1)));
+}
+
+void	square_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
+{
+	t_vec	point;
+	t_vec	v_normal;
+	t_vec	v_light;
+	double	visib;
+
+	point = vec_add(ori, vec_mult(dir, rt->t));
+	visib = is_visible(rt, light, point);
+	v_normal = vec_normalize(rt->last_obj->orient);
+	if (vec_dot(dir, v_normal) > 0)
+		v_normal = vec_mult(v_normal, -1);
+	v_light = vec_normalize(vec_sub(vec_mult(light.point, 1), point));
+	rt->tmp_color = color_add(rt->tmp_color, color_mult(rt->last_obj->color,
+				(light.ratio * vec_dot(v_normal, v_light) * visib /
+					pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 }
 
 void	triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
