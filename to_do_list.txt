@@ -9,6 +9,6 @@
 - Erreur fichier : Trop d'ob (genre plsr amb)
 - Erreur fichier : Format fichier incorrect
 - Binding des touches
-- Opti generale si possible
 - Tout mettre a la norme v3.0
-- Bonus : antialiaising
+- Optionnel : Opti generale si possible
+- Optionnel : antialiaising
