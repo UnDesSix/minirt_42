@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 16:20:12 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/02 19:12:37 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ void	get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 		ft_triangle(rt, obj, ori, dir);
 	else if (obj->type == SQUARE)
 		ft_square(rt, obj, ori, dir);
-/*
 	else if (obj->type == CYLINDER)
 		ft_cylinder(rt, obj, ori, dir);
-*/
 }
 
 void	fill_image(t_mini_rt *rt)
