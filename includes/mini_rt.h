@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 10:35:35 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/02 16:26:40 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ void		compute_rotation(t_mini_rt *rt);
 // Object functions
 */
 void		ft_sphere(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir);
-void		ft_plane(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir);
-void		ft_triangle(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir);
+void		ft_plane(t_mini_rt *rt, t_obj *plane, t_vec ori, t_vec dir);
+void		ft_triangle(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir);
+void		ft_square(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir);
+int			is_in_square(t_obj *square, t_vec point);
 
 /*
 // Light functions
@@ -47,11 +49,14 @@ void		apply_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 void		sphere_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 void		plane_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 void		triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
+void		square_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 
 int			apply_shaders(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir);
 int			is_visible(t_mini_rt *rt, t_light light, t_vec point);
 int			sphere_shaders(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir);
-
+int			plane_shaders(t_mini_rt *rt, t_obj *plane, t_vec ori, t_vec dir);
+int			triangle_shaders(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir);
+int			square_shaders(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir);
 /*
 // Color functions
 */

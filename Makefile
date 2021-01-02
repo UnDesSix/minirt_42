@@ -32,6 +32,7 @@ SRCS_NAME	=	main.c \
 				vec2.c \
 				sphere.c \
 				plane.c \
+				square.c \
 				triangle.c \
 				light_apply.c \
 				visibility.c \
