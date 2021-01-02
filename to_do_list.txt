@@ -8,6 +8,7 @@
 - Erreur fichier : Map incomplete
 - Erreur fichier : Trop d'ob (genre plsr amb)
 - Erreur fichier : Format fichier incorrect
+- Erreur fichier : tourne quand meme dans ce cas "p l 0,0,0 0,1,0 255,100,100"
 - Binding des touches
 - Tout mettre a la norme v3.0
 - Optionnel : Opti generale si possible
