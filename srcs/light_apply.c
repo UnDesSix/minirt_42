@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 23:17:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 19:21:14 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/03 20:46:22 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 //					1)));
 }
 
+/*
 void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 {
 	t_vec	point;
@@ -121,4 +122,4 @@ void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 				(light.ratio * vec_dot(v_normal, v_light) * visib /
 					pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 //					1)));
-}
+}*/
