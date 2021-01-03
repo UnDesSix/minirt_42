@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 09:39:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/03 18:28:54 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/03 21:18:29 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		apply_shaders(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 }
 
 
-int		is_visible(t_mini_rt *rt, t_light light, t_vec ori)
+int		is_visible(t_mini_rt *rt, t_light light, t_vec ori, t_vec normal)
 {
 	int		k;
 	t_vec	dir;
@@ -40,6 +40,7 @@ int		is_visible(t_mini_rt *rt, t_light light, t_vec ori)
 	double	l2;
 
 	k = 0;
+	ori = vec_add(ori, vec_mult(normal, 0.00001));
 	dir = vec_normalize(vec_sub(light.point, ori));
 	while (k < rt->curr_obj)
 	{
