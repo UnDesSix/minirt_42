@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 19:20:30 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/03 21:08:30 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		square_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 void		cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light);
 
 int			apply_shaders(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir);
-int			is_visible(t_mini_rt *rt, t_light light, t_vec point);
+int			is_visible(t_mini_rt *rt, t_light light, t_vec point, t_vec normal);
 int			sphere_shaders(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir);
 int			plane_shaders(t_mini_rt *rt, t_obj *plane, t_vec ori, t_vec dir);
 int			triangle_shaders(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir);

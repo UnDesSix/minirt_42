@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:02 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/03 20:53:13 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/04 09:08:51 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,8 @@ void	apply_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 		plane_light(rt, ori, dir, light);
 	if (rt->last_obj->type == SQUARE)
 		square_light(rt, ori, dir, light);
-/*
 	if (rt->last_obj->type == CYLINDER)
 		cylinder_light(rt, ori, dir, light);
-*/
 	if (rt->last_obj->type == TRIANGLE)
 		triangle_light(rt, ori, dir, light);
 }

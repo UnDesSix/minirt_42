@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 09:39:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/03 21:18:29 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/04 09:55:40 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,3 @@ int		is_visible(t_mini_rt *rt, t_light light, t_vec ori, t_vec normal)
 	}
 	return (1);
 }
-			/*
-				printf("l1 : %f\n", l1);
-				printf("l2 : %f\n", l2);
-				printf("t1 : %f\n", rt->vis_t1);
-				printf("ori    : %f, %f, %f\n", ori.x, ori.y, ori.z);
-				printf("light  : %f, %f, %f\n", light.point.x, light.point.y, light.point.z);
-				printf("point2 : %f, %f, %f\n\n", point2.x, point2.y, point2.z);
-			*/

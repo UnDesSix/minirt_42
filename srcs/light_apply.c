@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 23:17:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/03 21:18:17 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/04 10:41:06 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,8 @@ void	sphere_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 	point = vec_add(ori, vec_mult(dir, rt->t));
 	v_normal = vec_normalize(vec_sub(point, rt->last_obj->point1));
 	if (vec_dot(dir, v_normal) > 0)
-//	{
 		v_normal = vec_normalize(vec_mult(v_normal, -1));
-//		v_light = vec_normalize(vec_sub(vec_mult(light.point, -1), point));
-//	}
-//	else
-		v_light = vec_normalize(vec_sub(light.point, point));
+	v_light = vec_normalize(vec_sub(light.point, point));
 	visib = is_visible(rt, light, point, v_normal);
 	rt->tmp_color = color_add(rt->tmp_color, color_mult(rt->last_obj->color,
 				(light.ratio * vec_dot(v_normal, v_light) * visib /
@@ -96,7 +92,6 @@ void	triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 //					1)));
 }
 
-/*
 void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 {
 	t_vec	point;
@@ -105,21 +100,21 @@ void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 	double	visib;
 
 	point = vec_add(ori, vec_mult(dir, rt->t));
+//	rt->last_obj->orient = vec_mult(rt->last_obj->orient, rt->last_obj->height);
 	v_normal = vec_normalize(
-				vec_create((rt->last_obj->point1.x /
-				sqrt(pow(rt->last_obj->point1.x, 2) + pow(rt->last_obj->point1.y,2))),
-				(rt->last_obj->point1.y /
-				sqrt(pow(rt->last_obj->point1.x, 2) + pow(rt->last_obj->point1.y,2))), 0));
-	visib = is_visible(rt, light, point, normal);
+				vec_sub(vec_sub(point, rt->last_obj->point1), 
+					vec_mult(rt->last_obj->orient, 
+						vec_dot(rt->last_obj->orient, 
+							vec_sub(point, rt->last_obj->point1)))));
+	visib = is_visible(rt, light, point, v_normal);
 	if (vec_dot(dir, v_normal) > 0)
-//	{
 		v_normal = vec_normalize(vec_mult(v_normal, -1));
-//		v_light = vec_normalize(vec_sub(vec_mult(light.point, -1), point));
-//	}
-//	else
-		v_light = vec_normalize(vec_sub(light.point, point));
+	v_light = vec_normalize(vec_sub(light.point, point));
 	rt->tmp_color = color_add(rt->tmp_color, color_mult(rt->last_obj->color,
 				(light.ratio * vec_dot(v_normal, v_light) * visib /
 					pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 //					1)));
-}*/
+/*
+	rt->tmp_color = rt->last_obj->color;
+*/
+}
