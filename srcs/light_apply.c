@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 23:17:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/04 10:41:06 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/04 19:06:36 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,18 +94,24 @@ void	triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 
 void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 {
+/*
 	t_vec	point;
 	t_vec	v_normal;
+	t_vec	v_normal2;
 	t_vec	v_light;
 	double	visib;
 
+
 	point = vec_add(ori, vec_mult(dir, rt->t));
-//	rt->last_obj->orient = vec_mult(rt->last_obj->orient, rt->last_obj->height);
+	v_normal2 = vec_normalize(vec_sub(point, rt->last_obj->point1));
 	v_normal = vec_normalize(
-				vec_sub(vec_sub(point, rt->last_obj->point1), 
-					vec_mult(rt->last_obj->orient, 
-						vec_dot(rt->last_obj->orient, 
-							vec_sub(point, rt->last_obj->point1)))));
+				vec_sub(v_normal2, (vec_mult(rt->last_obj->orient, 
+						vec_dot(rt->last_obj->orient, v_normal2)))));
+	double	a;
+	a = vec_dot(rt->last_obj->orient, vec_sub(point, rt->last_obj->point1));
+	v_normal = vec_normalize(
+				vec_sub(point, vec_add(rt->last_obj->point1,
+					vec_mult(rt->last_obj->orient, a))));
 	visib = is_visible(rt, light, point, v_normal);
 	if (vec_dot(dir, v_normal) > 0)
 		v_normal = vec_normalize(vec_mult(v_normal, -1));
@@ -114,7 +120,9 @@ void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 				(light.ratio * vec_dot(v_normal, v_light) * visib /
 					pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 //					1)));
-/*
-	rt->tmp_color = rt->last_obj->color;
 */
+	(void)ori;
+	(void)dir;
+	(void)light;
+	rt->tmp_color = rt->last_obj->color;
 }
