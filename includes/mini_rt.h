@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/03 21:08:30 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/05 21:11:52 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void		ft_plane(t_mini_rt *rt, t_obj *plane, t_vec ori, t_vec dir);
 void		ft_triangle(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir);
 void		ft_square(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir);
 int			is_in_square(t_obj *square, t_vec point);
+void		cylinder_rotation(t_obj *rt);
 void		ft_cylinder(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir);
+int			ft_cylinder2(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point);
 
 /*
 // Light functions
@@ -59,6 +61,8 @@ int			sphere_shaders(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir);
 int			plane_shaders(t_mini_rt *rt, t_obj *plane, t_vec ori, t_vec dir);
 int			triangle_shaders(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir);
 int			square_shaders(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir);
+int			cylinder_shaders(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir);
+int			ft_cylinder2_sh(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point);
 /*
 // Color functions
 */

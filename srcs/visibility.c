@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 09:39:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/04 09:55:40 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/05 21:14:16 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ int		apply_shaders(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 		return (triangle_shaders(rt, obj, ori, dir));
 	else if (obj->type == SQUARE)
 		return (square_shaders(rt, obj, ori, dir));
-/*
 	else if (obj->type == CYLINDER)
 		return (cylinder_shaders(rt, obj, ori, dir));
-*/
 	else 
 		return (0);
 }

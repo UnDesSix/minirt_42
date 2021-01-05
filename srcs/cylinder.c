@@ -6,51 +6,103 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 18:51:07 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/04 21:05:44 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/05 21:16:47 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
 
+
+void	cylinder_rotation(t_obj *cylinder)
+{
+	t_vec	tmp;
+
+	tmp = vec_create(0, 1, 0);
+	cylinder->foward = vec_normalize(cylinder->orient);
+	
+	if (cylinder->foward.y == 1 || (cylinder->foward.y == -1))
+		cylinder->right = vec_normalize(vec_create(1,0,0));
+	else
+		cylinder->right = vec_cross(tmp, cylinder->foward);
+	cylinder->up = vec_cross(cylinder->foward, cylinder->right);
+	cylinder->foward = vec_normalize(cylinder->foward);
+	cylinder->right = vec_normalize(cylinder->right);
+}
+
 void	ft_cylinder(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 	double	delta;
-	t_vec	new_ray;
 
-//	cylinder->orient = vec_normalize(cylinder->orient);
-//	new_ray = vec_cross(dir, cylinder->orient);
 	s.sub = vec_sub(ori, cylinder->point1);
-//	s.a = vec_dot(new_ray, new_ray);
-//	s.b = 2 * vec_dot(new_ray, vec_cross(s.sub, cylinder->orient));
-//	s.c =vec_dot(vec_cross(s.sub, cylinder->orient), vec_cross(s.sub, cylinder->orient)) - (pow(cylinder->diameter / 2, 2));
-
-	
-	s.a = (pow(dir.x, 2) + pow(dir.z, 2));
-	s.b = 2 * (dir.x * s.sub.x + dir.z * s.sub.z);
-	s.c = (pow(s.sub.x, 2) + pow(s.sub.z, 2)) - 1;
-
+	s.a = pow(vec_dot(dir, cylinder->right), 2)
+			+ pow(vec_dot(dir, cylinder->up), 2);
+	s.b = 2 * (vec_dot(dir, cylinder->right) * vec_dot(s.sub, cylinder->right)
+				+ vec_dot(dir, cylinder->up) * vec_dot(s.sub, cylinder->up));
+	s.c = pow(vec_dot(s.sub, cylinder->right), 2) 
+			+ pow(vec_dot(s.sub, cylinder->up), 2)
+				- (pow(cylinder->diameter / 2, 2));
 	delta = pow(s.b, 2) - 4 * s.a *s.c;
 	if (delta < 0)
 		return ;
-	s.t1 = (-s.b - sqrt(delta)) / 2 * s.a;
-	s.t2 = (-s.b + sqrt(delta)) / 2 * s.a;
-	if (s.t1 >= 0 && s.t1 < rt->t)
-	{
-		rt->t = s.t1;
-		rt->last_obj = cylinder;
-		rt->flag = 0;
-	}
-	else if (s.t2 >= 0 && s.t2 < rt->t)
-	{
-		rt->t = s.t2;
-		rt->last_obj = cylinder;
-		rt->flag = 0;
-	}
+	s.t1 = (-s.b - sqrt(delta)) / (2 * s.a);
+	s.t2 = (-s.b + sqrt(delta)) / (2 * s.a);
+	if (s.t1 > 0 && s.t1 < rt->t)
+		ft_cylinder2(rt, cylinder, s.t1, vec_add(ori, vec_mult(dir, s.t1)));
+	if (s.t2 > 0 && s.t2 < rt->t)
+		ft_cylinder2(rt, cylinder, s.t2, vec_add(ori, vec_mult(dir, s.t2)));
 }
 
-/*
-int		cylinder_shaders(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
+int		ft_cylinder2(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point)
 {
+	double	z;
+
+	z = vec_dot(vec_sub(point, cylinder->point1), cylinder->foward);
+	if (fabs(z) > cylinder->height / 2)
+		return (0);
+	rt->t = t;
+	rt->last_obj = cylinder;
+	rt->flag = 0;
+	return (1);
 }
-*/
+
+int		ft_cylinder2_sh(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point)
+{
+	double	z;
+
+	z = vec_dot(vec_sub(point, cylinder->point1), cylinder->foward);
+	if (fabs(z) > cylinder->height / 2)
+		return (0);
+	rt->vis_t1 = t;
+	rt->last_obj = cylinder;
+	rt->flag = 0;
+	return (1);
+}
+
+int		cylinder_shaders(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
+{
+	t_solve	s;
+	double	delta;
+
+	s.sub = vec_sub(ori, cylinder->point1);
+	s.a = pow(vec_dot(dir, cylinder->right), 2)
+			+ pow(vec_dot(dir, cylinder->up), 2);
+	s.b = 2 * (vec_dot(dir, cylinder->right) * vec_dot(s.sub, cylinder->right)
+				+ vec_dot(dir, cylinder->up) * vec_dot(s.sub, cylinder->up));
+	s.c = pow(vec_dot(s.sub, cylinder->right), 2) 
+			+ pow(vec_dot(s.sub, cylinder->up), 2)
+				- (pow(cylinder->diameter / 2, 2));
+	delta = pow(s.b, 2) - 4 * s.a *s.c;
+	if (delta < 0)
+		return (0);
+	s.t1 = (-s.b - sqrt(delta)) / (2 * s.a);
+	s.t2 = (-s.b + sqrt(delta)) / (2 * s.a);
+	if (s.t1 > 0 && s.t1 < rt->t)
+		return (ft_cylinder2_sh(rt, cylinder, s.t1,
+					vec_add(ori, vec_mult(dir, s.t1))));
+	if (s.t2 > 0 && s.t2 < rt->t)
+		return (ft_cylinder2_sh(rt, cylinder, s.t1,
+					vec_add(ori, vec_mult(dir, s.t2))));
+	return (0);
+}
+

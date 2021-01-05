@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: /12/26 19:51: by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/05 11:10:05 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/05 20:30:39 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	compute_rotation(t_mini_rt *rt)
 
 	tmp = vec_normalize(vec_create(0, 1, 0));
 	rt->foward = vec_normalize(rt->cam->orient);
-	if (rt->cam->orient.y == 1 || rt->cam->orient.y == -1)
+	if (rt->foward.y == 1 || rt->foward.y == -1)
 		rt->right = vec_create(1,0,0);
 	else
 		rt->right = vec_cross(tmp, rt->foward);

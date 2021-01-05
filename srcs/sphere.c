@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 10:59:52 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/05 14:46:21 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_sphere(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
 	delta = pow(s.b, 2) - 4 * s.a *s.c;
 	if (delta < 0)
 		return ;
-	s.t1 = (-s.b - sqrt(delta)) / 2 * s.a;
-	s.t2 = (-s.b + sqrt(delta)) / 2 * s.a;
+	s.t1 = (-s.b - sqrt(delta)) / (2.0 * s.a);
+	s.t2 = (-s.b + sqrt(delta)) / (2.0 * s.a);
 //	rt->flag = 0;
 	if (s.t1 >= 0 && s.t1 < rt->t)
 	{
@@ -53,8 +53,8 @@ int		sphere_shaders(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
 	delta = pow(s.b, 2) - 4 * s.a *s.c;
 	if (delta < 0)
 		return (0);
-	s.t1 = (-s.b - sqrt(delta)) / 2 * s.a;
-	s.t2 = (-s.b + sqrt(delta)) / 2 * s.a;
+	s.t1 = (-s.b - sqrt(delta)) / (2.0 * s.a);
+	s.t2 = (-s.b + sqrt(delta)) / (2.0 * s.a);
 	if (s.t1 >= 0)
 	{
 		rt->vis_t1 = s.t1;

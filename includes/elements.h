@@ -96,6 +96,9 @@ typedef struct	s_obj
 	double	diameter;
 	t_vec	orient;
 	double	height;
+	t_vec		foward;
+	t_vec		right;
+	t_vec		up;
 }				t_obj;
 
 typedef struct	s_mini_rt

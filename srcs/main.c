@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 19:12:37 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/05 18:54:21 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 		ft_square(rt, obj, ori, dir);
 	else if (obj->type == CYLINDER)
 		ft_cylinder(rt, obj, ori, dir);
+	else 
+		return ;
 }
 
 void	fill_image(t_mini_rt *rt)
@@ -45,7 +47,6 @@ void	fill_image(t_mini_rt *rt)
 		rt->pos += 4;
 }
 
-/*
 t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
 {
 	t_vec	pixel;
@@ -60,7 +61,6 @@ t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
 	pixel.z = tmp.x * rt->right.z + tmp.y * rt->up.z + tmp.z * rt->foward.z;
 	return (pixel);
 }
-*/
 
 void	run_mini_rt(t_mini_rt *rt)
 {
@@ -131,7 +131,7 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-
+/*
 t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
 {
 	t_vec	pixel;
@@ -150,4 +150,4 @@ t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
 	pixel.z = tmp.x * rt->right.z + tmp.y * rt->up.z + tmp.z * rt->foward.z;
 	return (pixel);
 }
-
+*/
