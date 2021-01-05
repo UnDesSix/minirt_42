@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 10:56:48 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/21 10:46:06 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/05 18:02:54 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,4 @@ void	fill_points(t_vec *elem, char *s)
 	elem->z = ft_atof(tab[2]);
 	free_tab(tab);
 }
+

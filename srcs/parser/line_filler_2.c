@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:26:44 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 20:33:05 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/05 18:05:29 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	cylinder_filler(char **tab, t_mini_rt *rt)
 	fill_points(&rt->obj[i].point1, tab[1]);
 	fill_points(&rt->obj[i].orient, tab[2]);
 	fill_colors(&rt->obj[i].color, tab[3]);
+	cylinder_rotation(&rt->obj[i]);
 	rt->obj[i].diameter = ft_atof(tab[4]);
 	rt->obj[i].height = ft_atof(tab[5]);
 	rt->curr_obj++;

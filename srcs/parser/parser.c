@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/04 19:16:28 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/04 21:26:15 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,6 @@ int		parser(char *file_name, t_mini_rt *rt)
 		return (0);
 	}
 	parser_part_2(file_name, rt);
-	print_all_nb(rt);
+//	print_all_nb(rt);
 	return (1);
 }
