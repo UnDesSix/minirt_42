@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 18:51:07 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/05 21:16:47 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/06 12:40:38 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,14 @@ void	ft_cylinder(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
 	s.t1 = (-s.b - sqrt(delta)) / (2 * s.a);
 	s.t2 = (-s.b + sqrt(delta)) / (2 * s.a);
 	if (s.t1 > 0 && s.t1 < rt->t)
-		ft_cylinder2(rt, cylinder, s.t1, vec_add(ori, vec_mult(dir, s.t1)));
-	if (s.t2 > 0 && s.t2 < rt->t)
+	{
+		if (!ft_cylinder2(rt, cylinder, s.t1,
+				vec_add(ori, vec_mult(dir, s.t1))))
+			if (s.t2 > 0 && s.t2 < rt->t)
+				ft_cylinder2(rt, cylinder, s.t2,
+						vec_add(ori, vec_mult(dir, s.t2)));
+	}
+	else if (s.t2 > 0 && s.t2 < rt->t)
 		ft_cylinder2(rt, cylinder, s.t2, vec_add(ori, vec_mult(dir, s.t2)));
 }
 
@@ -97,12 +103,18 @@ int		cylinder_shaders(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
 		return (0);
 	s.t1 = (-s.b - sqrt(delta)) / (2 * s.a);
 	s.t2 = (-s.b + sqrt(delta)) / (2 * s.a);
-	if (s.t1 > 0 && s.t1 < rt->t)
-		return (ft_cylinder2_sh(rt, cylinder, s.t1,
-					vec_add(ori, vec_mult(dir, s.t1))));
-	if (s.t2 > 0 && s.t2 < rt->t)
-		return (ft_cylinder2_sh(rt, cylinder, s.t1,
-					vec_add(ori, vec_mult(dir, s.t2))));
+	if (s.t1 > 0)
+	{
+		if (ft_cylinder2_sh(rt, cylinder, s.t1,
+				vec_add(ori, vec_mult(dir, s.t1))) != 0)
+			return (1);
+	}
+	if (s.t2 > 0)
+	{
+		if (ft_cylinder2_sh(rt, cylinder, s.t1,
+				vec_add(ori, vec_mult(dir, s.t2))) != 0)
+			return (1);
+	}
 	return (0);
 }
 
