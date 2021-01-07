@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 18:51:07 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/07 17:50:03 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/07 21:33:30 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	cylinder_rotation(t_obj *cylinder)
 {
 	t_vec	tmp;
 
-	tmp = vec_create(0, 1, 0);
+	tmp = vec_create(0, 0, -1);
 	cylinder->foward = vec_normalize(cylinder->orient);
 	
 	if (cylinder->foward.y == 1 || (cylinder->foward.y == -1))
@@ -27,9 +27,6 @@ void	cylinder_rotation(t_obj *cylinder)
 	cylinder->up = vec_cross(cylinder->foward, cylinder->right);
 	cylinder->foward = vec_normalize(cylinder->foward);
 	cylinder->right = vec_normalize(cylinder->right);
-	printf("vec up : %f, %f, %f\n", cylinder->up.x, cylinder->up.y, cylinder->up.z);
-	printf("vec fo : %f, %f, %f\n", cylinder->foward.x, cylinder->foward.y, cylinder->foward.z);
-	printf("vec ri : %f, %f, %f\n", cylinder->right.x, cylinder->right.y, cylinder->right.z);
 }
 
 void	ft_cylinder(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
