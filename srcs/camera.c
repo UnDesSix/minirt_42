@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: /12/26 19:51: by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/05 20:30:39 by mlarboul         ###   ########.fr       */
+/*   Created: 2021/01/08 14:43:33 by mlarboul          #+#    #+#             */
+/*   Updated: 2021/01/08 14:45:12 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	compute_rotation(t_mini_rt *rt)
 	tmp = vec_normalize(vec_create(0, 1, 0));
 	rt->foward = vec_normalize(rt->cam->orient);
 	if (rt->foward.y == 1 || rt->foward.y == -1)
-		rt->right = vec_create(1,0,0);
+		rt->right = vec_create(1, 0, 0);
 	else
 		rt->right = vec_cross(tmp, rt->foward);
 	rt->up = vec_cross(rt->foward, rt->right);

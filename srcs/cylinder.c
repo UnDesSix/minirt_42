@@ -6,12 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 18:51:07 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 14:37:27 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:45:46 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
-
 
 void	cylinder_rotation(t_obj *cylinder)
 {
@@ -19,9 +18,8 @@ void	cylinder_rotation(t_obj *cylinder)
 
 	tmp = vec_create(0, 0, -1);
 	cylinder->foward = vec_normalize(cylinder->orient);
-	
 	if (cylinder->foward.z == 1 || (cylinder->foward.z == -1))
-		cylinder->right = vec_normalize(vec_create(1,0,0));
+		cylinder->right = vec_normalize(vec_create(1, 0, 0));
 	else
 		cylinder->right = vec_cross(tmp, cylinder->foward);
 	cylinder->up = vec_cross(cylinder->foward, cylinder->right);
@@ -39,10 +37,10 @@ void	ft_cylinder(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
 			+ pow(vec_dot(dir, cylinder->up), 2);
 	s.b = 2 * (vec_dot(dir, cylinder->right) * vec_dot(s.sub, cylinder->right)
 				+ vec_dot(dir, cylinder->up) * vec_dot(s.sub, cylinder->up));
-	s.c = pow(vec_dot(s.sub, cylinder->right), 2) 
+	s.c = pow(vec_dot(s.sub, cylinder->right), 2)
 			+ pow(vec_dot(s.sub, cylinder->up), 2)
 				- (pow((cylinder->diameter / 2.0), 2));
-	delta = pow(s.b, 2) - 4 * s.a *s.c;
+	delta = pow(s.b, 2) - 4 * s.a * s.c;
 	if (delta < 0)
 		return ;
 	s.t1 = (-s.b - sqrt(delta)) / (2.0 * s.a);
@@ -89,10 +87,10 @@ int		cylinder_shaders(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
 			+ pow(vec_dot(dir, cylinder->up), 2);
 	s.b = 2 * (vec_dot(dir, cylinder->right) * vec_dot(s.sub, cylinder->right)
 				+ vec_dot(dir, cylinder->up) * vec_dot(s.sub, cylinder->up));
-	s.c = pow(vec_dot(s.sub, cylinder->right), 2) 
+	s.c = pow(vec_dot(s.sub, cylinder->right), 2)
 			+ pow(vec_dot(s.sub, cylinder->up), 2)
 				- (pow((cylinder->diameter / 2.0), 2));
-	delta = pow(s.b, 2) - 4 * s.a *s.c;
+	delta = pow(s.b, 2) - 4 * s.a * s.c;
 	if (delta < 0)
 		return (0);
 	s.t1 = (-s.b - sqrt(delta)) / (2.0 * s.a);

@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:02 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/05 13:09:55 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:57:42 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +20,6 @@ void	amb_light(t_mini_rt *rt)
 												* rt->last_obj->color.g));
 	rt->tmp_color.b = min_max_colors((rt->tmp_color.b + rt->amb.ratio
 												* rt->last_obj->color.b));
-}
-
-void	init_color(t_mini_rt *rt)
-{
-	rt->tmp_color.r = 0;
-	rt->tmp_color.g = 0;
-	rt->tmp_color.b = 0;
-}
-
-t_color	color_add(t_color c1, t_color c2)
-{
-	t_color	c;
-
-	c.r = min_max_colors(c1.r + c2.r);
-	c.g = min_max_colors(c1.g + c2.g);
-	c.b = min_max_colors(c1.b + c2.b);
-	return (c);
-}
-
-t_color	color_mult(t_color c1, double nb)
-{
-	t_color	c;
-
-	c.r = min_max_colors(c1.r * nb);
-	c.g = min_max_colors(c1.g * nb);
-	c.b = min_max_colors(c1.b * nb);
-	return (c);
-}
-
-double	min_max_colors(double color)
-{
-	if (color > 255)
-		return (255);
-	else if (color < 0)
-		return (0);
-	return (color);
 }
 
 void	apply_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)

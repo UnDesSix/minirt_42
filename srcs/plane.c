@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:30 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 12:33:07 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:54:10 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "../includes/mini_rt.h"
+#include "../includes/mini_rt.h"
 
 void	ft_plane(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 {
@@ -21,7 +21,6 @@ void	ft_plane(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 	if (!s.b)
 		return ;
 	s.t1 = -s.a / s.b;
-//	if (s.t1 >= 0)
 	if (s.t1 >= 0 && s.t1 < rt->t)
 	{
 		rt->t = s.t1;

@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 15:50:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/03 18:37:27 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:55:25 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int		is_in_square(t_obj *square, t_vec point)
 		return (0);
 	return (1);
 }
-
 
 void	ft_square(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir)
 {

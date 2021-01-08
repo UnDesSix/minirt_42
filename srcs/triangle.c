@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:30 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/02 12:42:37 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:54:52 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "../includes/mini_rt.h"
+#include "../includes/mini_rt.h"
 
 void	ft_triangle(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
 {
