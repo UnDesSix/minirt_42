@@ -6,12 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/05 18:54:21 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 18:16:06 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
-
 
 void	get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 {
@@ -45,21 +44,6 @@ void	fill_image(t_mini_rt *rt)
 		rt->image.buffer[rt->pos + 2] = (char)0;
 	}
 		rt->pos += 4;
-}
-
-t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
-{
-	t_vec	pixel;
-	t_vec	tmp;
-
-	pixel.x = x - (rt->res.w / 2);
-	pixel.y = (rt->res.h / 2) - y;
-	pixel.z = rt->res.w / (2 * tan((camera.fov * M_PI / 180 / 2)));
-	tmp = pixel;
-	pixel.x = tmp.x * rt->right.x + tmp.y * rt->up.x + tmp.z * rt->foward.x;
-	pixel.y = tmp.x * rt->right.y + tmp.y * rt->up.y + tmp.z * rt->foward.y;
-	pixel.z = tmp.x * rt->right.z + tmp.y * rt->up.z + tmp.z * rt->foward.z;
-	return (pixel);
 }
 
 void	run_mini_rt(t_mini_rt *rt)
@@ -130,24 +114,3 @@ int		main(int argc, char **argv)
 		free(rt.obj);
 	return (0);
 }
-
-/*
-t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
-{
-	t_vec	pixel;
-	t_vec	tmp;
-	float	scale;
-	float	scene_ratio;
-
-	scene_ratio = rt->res.w / rt->res.h;
-	scale = tan((camera.fov * M_PI / 180 / 2.0));
-	pixel.x = (2 * (x + 0.5) / rt->res.w - 1) * scene_ratio * scale;
-	pixel.y = (1 - 2 * (y + 0.5) / rt->res.h) * scale;
-	pixel.z = 1;
-	tmp = pixel;
-	pixel.x = tmp.x * rt->right.x + tmp.y * rt->up.x + tmp.z * rt->foward.x;
-	pixel.y = tmp.x * rt->right.y + tmp.y * rt->up.y + tmp.z * rt->foward.y;
-	pixel.z = tmp.x * rt->right.z + tmp.y * rt->up.z + tmp.z * rt->foward.z;
-	return (pixel);
-}
-*/

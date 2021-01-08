@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/05 21:11:52 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 16:24:40 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			plane_shaders(t_mini_rt *rt, t_obj *plane, t_vec ori, t_vec dir);
 int			triangle_shaders(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir);
 int			square_shaders(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir);
 int			cylinder_shaders(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir);
-int			ft_cylinder2_sh(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point);
+int			cylinder2_sh(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point);
 /*
 // Color functions
 */

@@ -27,17 +27,18 @@ SRCS_NAME	=	main.c \
 				parser/line_filler_1.c \
 				parser/line_filler_2.c \
 				parser/parser.c \
-				camera.c \
-				vec.c \
-				vec2.c \
-				sphere.c \
-				plane.c \
-				square.c \
-				cylinder.c \
-				triangle.c \
-				light_apply.c \
-				visibility.c \
-				light.c
+				maths/vec.c \
+				maths/vec2.c \
+				shape/sphere.c \
+				shape/plane.c \
+				shape/square.c \
+				shape/cylinder.c \
+				shape/triangle.c \
+				visual/camera.c \
+				visual/light_apply.c \
+				visual/visibility.c \
+				visual/light.c \
+				visual/color.c
 
 SRCS		=	$(addprefix $(SRCS_PATH), $(SRCS_NAME))
 OBJS		=	$(SRCS:.c=.o)
