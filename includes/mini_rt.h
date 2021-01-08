@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 16:24:40 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 19:09:09 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void		amb_light(t_mini_rt *rt);
 void		init_tmp_color(t_mini_rt *rt);
 void		init_color(t_mini_rt *rt);
 t_color		color_add(t_color c1, t_color c2);
+t_color		color_average(t_color c1, t_color c2);
 t_color		color_mult(t_color c1, double nb);
 double		min_max_colors(double color);
 
