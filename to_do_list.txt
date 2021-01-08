@@ -1,4 +1,3 @@
-- couleurs des lights (amb et light)
 - Gestion de la fenetre MLX (taille, fermeture et reduction)
 - MultiCam
 - Message d'erreurs propres
