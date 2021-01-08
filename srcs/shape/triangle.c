@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:30 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 14:54:52 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 22:40:23 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_triangle(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
 	s.v2 = vec_sub(triangle->point3, triangle->point1);
 	s.pvec = vec_cross(dir, s.v2);
 	s.delta = vec_dot(s.v1, s.pvec);
-	if (s.delta < 0.000001f && s.delta > -0.000001f)
+	if (s.delta < 0.0001 && s.delta > -0.0001)
 		return ;
 	s.c = 1.0 / s.delta;
 	s.tvec = vec_sub(ori, triangle->point1);
@@ -48,7 +48,7 @@ int		triangle_shaders(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
 	s.v2 = vec_sub(triangle->point3, triangle->point1);
 	s.pvec = vec_cross(dir, s.v2);
 	s.delta = vec_dot(s.v1, s.pvec);
-	if (s.delta < 0.000001f && s.delta > -0.000001f)
+	if (s.delta < 0.00001 && s.delta > -0.00001)
 		return (0);
 	s.c = 1.0 / s.delta;
 	s.tvec = vec_sub(ori, triangle->point1);
