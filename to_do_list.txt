@@ -1,15 +1,13 @@
-- ombres DE toutes les formes SUR toute les formes
 - couleurs des lights (amb et light)
-- Carre, Cylindre
 - Gestion de la fenetre MLX (taille, fermeture et reduction)
 - MultiCam
 - Message d'erreurs propres
 - Gerer segfault quand erreur dans la map
 - Erreur fichier : Map incomplete
 - Erreur fichier : Trop d'ob (genre plsr amb)
+- Erreur fichier : Obj manquants (genre pas de cam ou Res)
 - Erreur fichier : Format fichier incorrect
 - Erreur fichier : tourne quand meme dans ce cas "p l 0,0,0 0,1,0 255,100,100"
 - Binding des touches
-- Tout mettre a la norme v3.0
 - Optionnel : Opti generale si possible
 - Optionnel : antialiaising
