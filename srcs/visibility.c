@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 09:39:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/06 21:14:22 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:34:40 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,9 @@ int		apply_shaders(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 		return (triangle_shaders(rt, obj, ori, dir));
 	else if (obj->type == SQUARE)
 		return (square_shaders(rt, obj, ori, dir));
-/*
 	else if (obj->type == CYLINDER)
 		return (cylinder_shaders(rt, obj, ori, dir));
-*/
-	else 
-		return (0);
+	return (0);
 }
 
 
@@ -40,11 +37,12 @@ int		is_visible(t_mini_rt *rt, t_light light, t_vec ori, t_vec normal)
 	double	l2;
 
 	k = 0;
-	ori = vec_add(ori, vec_mult(normal, 0.00001));
+	ori = vec_add(ori, vec_mult(normal, 0.0001));
 	dir = vec_normalize(vec_sub(light.point, ori));
 	while (k < rt->curr_obj)
 	{
-		if (k != rt->last_obj->id && apply_shaders(rt, &rt->obj[k], ori, dir))
+		if (apply_shaders(rt, &rt->obj[k], ori, dir))
+//		if ((k != rt->last_obj->id) && apply_shaders(rt, &rt->obj[k], ori, dir))
 		{
 			point2 = vec_add(ori, vec_mult(dir, rt->vis_t1));
 			l1 = vec_length(vec_sub(light.point, ori));
