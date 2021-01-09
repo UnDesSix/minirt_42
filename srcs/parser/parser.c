@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/09 16:00:39 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/09 22:17:22 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int		parser_part_2(char *file_name, t_mini_rt *rt)
 	int		fd;
 	int		error_code;
 
-	fd = open(file_name, O_RDONLY);
-	// Handle opening AND READING the parameter
+	if ((fd = open(file_name, O_RDONLY)) < 0)
+		return (-600);
 	error_code = -500;
 	while (get_next_line(fd, &line))
 	{
@@ -79,25 +79,30 @@ int		parser_part_1(char *file_name, t_mini_rt *rt)
 	char	*line;
 	int		fd;
 	int		error_code;
+	int		tmp;
 
-	fd = open(file_name, O_RDONLY);
+	if ((fd = open(file_name, O_RDONLY)) < 0)
+		return (-600);
 	// Handle opening AND READING the parameter
 	init_all_nb(rt);
-	error_code = -500;
+	error_code = 1;
+//	error_code = -500;
 	while (get_next_line(fd, &line))
 	{
 		
 		if (line[0] != '#')
-			error_code = split_line_1(line, rt);
+			if ((tmp = split_line_1(line, rt)) != 1)
+				error_code = tmp;
 		free(line);
 	}
-	if (line)
+//	if (line)
 		free(line);
 	close(fd);
 	// Check nb for each elem.
 //	printf("Error code : %d\n", error_code);
 	return (error_code);
 }
+
 
 int		parser(char *file_name, t_mini_rt *rt)
 {
@@ -112,6 +117,6 @@ int		parser(char *file_name, t_mini_rt *rt)
 		return (0);
 	}
 	parser_part_2(file_name, rt);
-//	print_all_nb(rt);
+	print_all_nb(rt);
 	return (1);
 }
