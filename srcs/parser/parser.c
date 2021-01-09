@@ -6,11 +6,46 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/04 21:26:15 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/09 16:00:39 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mini_rt.h"
+
+void	split_line_2(char *line, t_mini_rt *rt)
+{
+	char		**tab;
+	fct			line_filler;
+
+	tab = ft1_split(line, " \f\r\r\t\v");
+	if (tab[0])
+	{
+		if ((line_filler = identify_type_2(tab[0])))
+			line_filler(tab, rt);
+	}
+	free_tab(tab);
+}
+
+int		parser_part_2(char *file_name, t_mini_rt *rt)
+{
+	char	*line;
+	int		fd;
+	int		error_code;
+
+	fd = open(file_name, O_RDONLY);
+	// Handle opening AND READING the parameter
+	error_code = -500;
+	while (get_next_line(fd, &line))
+	{
+		if (line[0] != '#')
+			split_line_2(line, rt);
+		free(line);
+	}
+	if (line)
+		free(line);
+	close(fd);
+	return (error_code);
+}
 
 int		split_line_1(char *line, t_mini_rt *rt)
 {
@@ -39,20 +74,6 @@ int		split_line_1(char *line, t_mini_rt *rt)
 	return (error_code);
 }
 
-void	split_line_2(char *line, t_mini_rt *rt)
-{
-	char		**tab;
-	fct			line_filler;
-
-	tab = ft1_split(line, " \f\r\r\t\v");
-	if (tab[0])
-	{
-		if ((line_filler = identify_type_2(tab[0])))
-			line_filler(tab, rt);
-	}
-	free_tab(tab);
-}
-
 int		parser_part_1(char *file_name, t_mini_rt *rt)
 {
 	char	*line;
@@ -75,27 +96,6 @@ int		parser_part_1(char *file_name, t_mini_rt *rt)
 	close(fd);
 	// Check nb for each elem.
 //	printf("Error code : %d\n", error_code);
-	return (error_code);
-}
-
-int		parser_part_2(char *file_name, t_mini_rt *rt)
-{
-	char	*line;
-	int		fd;
-	int		error_code;
-
-	fd = open(file_name, O_RDONLY);
-	// Handle opening AND READING the parameter
-	error_code = -500;
-	while (get_next_line(fd, &line))
-	{
-		if (line[0] != '#')
-			split_line_2(line, rt);
-		free(line);
-	}
-	if (line)
-		free(line);
-	close(fd);
 	return (error_code);
 }
 
