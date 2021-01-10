@@ -7,8 +7,8 @@ MLX_PATH	=	./libs/minilibx-linux/
 MLX_NAME	=	$(MLX_PATH)libmlx.a
 MLX_INC		=	-I$(MLX_PATH)
 
-LIBC_PATH	=	./libs/printf/
-LIBC_NAME	=	$(LIBC_PATH)libftprintf.a
+LIBC_PATH	=	./libs/libft/
+LIBC_NAME	=	$(LIBC_PATH)libft.a
 LIBC_INC	=	-I$(LIBC_PATH)
 
 SRCS_PATH	=	./srcs/
