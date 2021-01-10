@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:26:44 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/20 10:39:29 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/10 17:18:28 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,17 @@ int	cylinder_checker(char **tab, t_mini_rt *rt)
 		return (-1);
 	if (!tab[2] || !ft_is_coord(tab[2], ORIENT))
 		return (-2);
-	if (!tab[3] || !ft_is_coord(tab[3], COLORS))
+	if (!tab[3] || !ft_is_float(tab[3]))
+		return (-3);
+	value = atof(tab[3]);
+	if (value < 0)
 		return (-3);
 	if (!tab[4] || !ft_is_float(tab[4]))
 		return (-4);
 	value = atof(tab[4]);
 	if (value < 0)
 		return (-4);
-	if (!tab[5] || !ft_is_float(tab[5]))
-		return (-5);
-	value = atof(tab[5]);
-	if (value < 0)
+	if (!tab[3] || !ft_is_coord(tab[5], COLORS))
 		return (-5);
 	if (tab[6])
 		return (0);

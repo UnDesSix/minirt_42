@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:26:44 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/05 18:05:29 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/10 22:15:47 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	sphere_filler(char **tab, t_mini_rt *rt)
 {
-	int	 i;
+	int	i;
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 1;
@@ -28,7 +28,7 @@ int	sphere_filler(char **tab, t_mini_rt *rt)
 
 int	plane_filler(char **tab, t_mini_rt *rt)
 {
-	int	 i;
+	int	i;
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 2;
@@ -42,7 +42,7 @@ int	plane_filler(char **tab, t_mini_rt *rt)
 
 int	square_filler(char **tab, t_mini_rt *rt)
 {
-	int	 i;
+	int	i;
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 3;
@@ -57,24 +57,24 @@ int	square_filler(char **tab, t_mini_rt *rt)
 
 int	cylinder_filler(char **tab, t_mini_rt *rt)
 {
-	int	 i;
+	int	i;
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 4;
 	rt->obj[i].id = i;
 	fill_points(&rt->obj[i].point1, tab[1]);
 	fill_points(&rt->obj[i].orient, tab[2]);
-	fill_colors(&rt->obj[i].color, tab[3]);
 	cylinder_rotation(&rt->obj[i]);
-	rt->obj[i].diameter = ft_atof(tab[4]);
-	rt->obj[i].height = ft_atof(tab[5]);
+	rt->obj[i].diameter = ft_atof(tab[3]);
+	rt->obj[i].height = ft_atof(tab[4]);
+	fill_colors(&rt->obj[i].color, tab[5]);
 	rt->curr_obj++;
 	return (0);
 }
 
 int	triangle_filler(char **tab, t_mini_rt *rt)
 {
-	int	 i;
+	int	i;
 
 	i = rt->curr_obj;
 	rt->obj[i].type = 5;
@@ -86,4 +86,3 @@ int	triangle_filler(char **tab, t_mini_rt *rt)
 	rt->curr_obj++;
 	return (0);
 }
-
