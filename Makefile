@@ -27,6 +27,7 @@ SRCS_NAME	=	main.c \
 				parser/line_filler_1.c \
 				parser/line_filler_2.c \
 				parser/parser.c \
+				parser/error_manager.c \
 				maths/vec.c \
 				maths/vec2.c \
 				shape/sphere.c \
