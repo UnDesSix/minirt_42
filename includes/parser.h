@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 15:12:58 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 20:32:40 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/10 21:15:52 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,13 @@ int			plane_filler(char **tab, t_mini_rt *rt);
 int			square_filler(char **tab, t_mini_rt *rt);
 int			triangle_filler(char **tab, t_mini_rt *rt);
 int			cylinder_filler(char **tab, t_mini_rt *rt);
+
+/*
+//	Error functions
+*/
+int			parsing_error(int line, int code_error);
+int			open_or_read_error(char *file_name, int flag);
+int			extension_is_wrong(char *str);
+int			wrong_nb_of_elem(t_mini_rt *rt);
 
 #endif

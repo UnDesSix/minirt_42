@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 19:09:09 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/10 17:33:24 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdio.h>
 # include <mlx.h>
 
-# include "../../libs/printf/srcs/ft_printf.h"
+# include "../../libs/libft/libft.h"
 # include "get_next_line.h"
 # include "elements.h"
 # include "parser.h"

@@ -7,8 +7,6 @@
 # define CYLINDER 4
 # define TRIANGLE 5
 
-# define LIGHT 10
-
 typedef struct	s_vec
 {
 	double	x;
@@ -29,14 +27,6 @@ typedef	struct	s_res
 	int	w;
 	int	h;
 }				t_res;
-
-/*
-typedef struct	s_ray
-{
-	t_vec	ori;
-	t_vec	dir;
-}				t_ray;
-*/
 
 typedef struct	s_solve
 {
@@ -96,9 +86,9 @@ typedef struct	s_obj
 	double	diameter;
 	t_vec	orient;
 	double	height;
-	t_vec		foward;
-	t_vec		right;
-	t_vec		up;
+	t_vec	foward;
+	t_vec	right;
+	t_vec	up;
 }				t_obj;
 
 typedef struct	s_mini_rt
