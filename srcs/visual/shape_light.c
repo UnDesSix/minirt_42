@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 23:17:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 21:09:25 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 09:16:21 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,6 @@ void	square_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 		color_mult(color_average(light.color, rt->last_obj->color),
 			(light.ratio * vec_dot(v_normal, v_light) * visib /
 				pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
-//	rt->tmp_color = color_add(rt->tmp_color, color_mult(rt->last_obj->color,
-//				(light.ratio * vec_dot(v_normal, v_light) * visib /
-//					pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 }
 
 void	triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
@@ -92,9 +89,6 @@ void	triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 		color_mult(color_average(light.color, rt->last_obj->color),
 			(light.ratio * vec_dot(v_normal, v_light) * visib /
 				pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
-//	rt->tmp_color = color_add(rt->tmp_color, color_mult(rt->last_obj->color,
-//				(light.ratio * vec_dot(v_normal, v_light) * visib /
-//					pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 }
 
 void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
@@ -118,7 +112,4 @@ void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 		color_mult(color_average(light.color, rt->last_obj->color),
 			(light.ratio * vec_dot(v_normal, v_light) * visib /
 				pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
-//	rt->tmp_color = color_add(rt->tmp_color, color_mult(rt->last_obj->color,
-//				(light.ratio * vec_dot(v_normal, v_light) * visib /
-//					pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 }
