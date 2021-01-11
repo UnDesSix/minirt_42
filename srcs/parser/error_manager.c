@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:31:31 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 22:14:52 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 19:14:03 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	extension_is_wrong(char *str)
 	i = ft_strlen(str);
 	if (str[i - 3] != '.' || str[i - 2] != 'r' || str[i - 1] != 't')
 	{
-		printf("%s is not a \033[1;31mrt. file\033[0m.\n", str);
+		printf("%s is not a \033[1;31m.rt file\033[0m.\n", str);
 		return (1);
 	}
 	return (0);

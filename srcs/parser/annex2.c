@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:52:17 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 22:13:40 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:53:48 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ int		malloc_elem(t_mini_rt *rt)
 	{
 		printf("Memory allocation failed while ");
 		printf("\033[1;31mcamera allocation\033[0m.\n");
+		return (-1);
+	}
+	if (!(rt->image = malloc(sizeof(t_image) * rt->cam_nb)))
+	{
+		printf("Memory allocation failed while ");
+		printf("\033[1;31mimage allocation\033[0m.\n");
 		return (-1);
 	}
 	if (!(rt->light = malloc(sizeof(t_light) * rt->light_nb)))

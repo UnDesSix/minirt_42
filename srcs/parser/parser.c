@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 22:16:48 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 19:12:06 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ int		parser_part_2(char *file_name, t_mini_rt *rt)
 	return (error_code);
 }
 
-int		split_line_1(char *line, t_mini_rt *rt)
+int		split_line_1(char *line, t_mini_rt *rt, int *i)
 {
-	static int	i = 1;
 	char		**tab;
 	fct			line_checker;
 	int			error_code;
@@ -61,21 +60,22 @@ int		split_line_1(char *line, t_mini_rt *rt)
 	{
 		if ((line_checker = identify_type(tab[0])))
 			if ((error_code = line_checker(tab, rt)) != 1)
-				r_value = parsing_error(i, error_code);
+				r_value = parsing_error(*i, error_code);
 		if (!line_checker)
-			r_value = parsing_error(i, -404);
+			r_value = parsing_error(*i, -404);
 	}
 	free_tab(tab);
-	i++;
+	(*i)++;
 	return (r_value);
 }
 
 int		parser_part_1(char *file_name, t_mini_rt *rt)
 {
-	char	*line;
-	int		fd;
-	int		error_code;
-	int		tmp;
+	char		*line;
+	int			fd;
+	int			error_code;
+	int			tmp;
+	static int	i = 1;
 
 	if ((fd = open(file_name, O_RDONLY)) < 0)
 		return (open_or_read_error(file_name, 1));
@@ -86,8 +86,10 @@ int		parser_part_1(char *file_name, t_mini_rt *rt)
 	while (get_next_line(fd, &line))
 	{
 		if (line[0] != '#')
-			if ((tmp = split_line_1(line, rt)) != 1)
+			if ((tmp = split_line_1(line, rt, &i)) != 1)
 				error_code = tmp;
+		if (line[0] == '#')
+			i++;
 		free(line);
 	}
 	if (line)
