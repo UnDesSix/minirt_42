@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:55:19 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/11 09:17:46 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 09:49:13 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,4 @@ void	run_mini_rt(t_mini_rt *rt)
 		}
 	}
 	mess_rendering_img(x, y, rt, 2);
-
+}
