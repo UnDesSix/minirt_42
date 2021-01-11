@@ -35,6 +35,7 @@ SRCS_NAME	=	main.c \
 				shape/square.c \
 				shape/cylinder.c \
 				shape/triangle.c \
+				visual/ray.c \
 				visual/camera.c \
 				visual/shape_light.c \
 				visual/visibility.c \
