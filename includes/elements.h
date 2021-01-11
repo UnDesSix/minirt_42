@@ -112,6 +112,7 @@ typedef struct	s_mini_rt
 	t_vec		right;
 	t_vec		up;
 
+	t_vec		dir;
 	t_res		res;
 	t_ambient	amb;
 	t_camera	*cam;

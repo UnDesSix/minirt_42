@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 17:33:24 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 09:14:32 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@
 # include "elements.h"
 # include "parser.h"
 /*
-// Main functions
+// Ray functions
 */
 void		get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir);
 void		fill_image(t_mini_rt *tr);
 t_vec		compute_dir(t_mini_rt *rt, int x, int y, t_camera camera);
 void		run_mini_rt(t_mini_rt *rt);
 void		compute_rotation(t_mini_rt *rt);
+void		mess_rendering_img(int x, int y, t_mini_rt *rt, int flag);
+void		init_rt_var(t_mini_rt *rt, int x, int y);
+
 /*
 // Object functions
 */
