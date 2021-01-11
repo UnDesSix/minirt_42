@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 15:12:58 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 21:15:52 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 19:11:57 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		fill_colors(t_color *elem, char *s);
 void		fill_points(t_vec *elem, char *s);
 
 // Parser
-int			split_line_1(char *line, t_mini_rt *rt);
+int			split_line_1(char *line, t_mini_rt *rt, int *i);
 void		split_line_2(char *line, t_mini_rt *rt);
 int			parser_part_1(char *argv, t_mini_rt *rt);
 int			parser_part_2(char *argv, t_mini_rt *rt);

@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/11 07:47:39 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:59:59 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,16 @@ int		main(int argc, char **argv)
 	compute_rotation(&rt);
 	rt.mlx = mlx_init();
 	rt.mlx_win = mlx_new_window(rt.mlx, rt.res.w, rt.res.h, "mini_RT Version 2.0");
-	
+
+/*
 	rt.image.img = mlx_new_image(rt.mlx, rt.res.w, rt.res.h);
 	rt.image.buffer = mlx_get_data_addr(rt.image.img, &rt.image.bpp,
 									&rt.image.line_length, &rt.image.endian);
-
 	run_mini_rt(&rt);
-
 	mlx_put_image_to_window(rt.mlx, rt.mlx_win, rt.image.img, 0, 0);
-
+*/
+	rendering_all_cams(&rt);
+	mlx_put_image_to_window(rt.mlx, rt.mlx_win, rt.image[1].img, 0, 0);
 	mlx_loop(rt.mlx);
 	if (rt.cam)
 		free(rt.cam);
@@ -43,5 +44,7 @@ int		main(int argc, char **argv)
 		free(rt.light);
 	if (rt.obj)
 		free(rt.obj);
+	if (rt.image)
+		free(rt.image);
 	return (0);
 }

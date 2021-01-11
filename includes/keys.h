@@ -95,7 +95,7 @@ typedef struct	s_mini_rt
 {
 	void		*mlx;
 	void		*mlx_win;
-	t_image		*image;
+	t_image		image;
 	int			pos;
 
 	int			res_nb;

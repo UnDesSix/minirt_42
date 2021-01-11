@@ -6,11 +6,26 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:43:33 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 18:20:14 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:58:50 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
+
+void	rendering_all_cams(t_mini_rt *rt)
+{
+	int	k;
+
+	k = 0;
+	while (k < rt->cam_nb)
+	{
+		rt->image[k].img = mlx_new_image(rt->mlx, rt->res.w, rt->res.h);
+		rt->image[k].buffer = mlx_get_data_addr(rt->image[k].img,
+			&rt->image[k].bpp, &rt->image[k].line_length, &rt->image[k].endian);
+		run_mini_rt(rt, k);
+		k++;
+	}
+}
 
 void	compute_rotation(t_mini_rt *rt)
 {
