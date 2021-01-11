@@ -55,7 +55,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			@make --silent -C $(MLX_PATH)
 			@make --silent -C $(LIBC_PATH)
-			@$(CC) $(OBJS) $(MLX_NAME) $(LIBC_NAME) -L$(MLX_PATH) -L/usr/lib -L$(LIBC_PATH) $(LIBC_INC) $(MLX_INC) -I$(INC) -lXext -lX11 -lm -lz -o $(NAME) 
+			@$(CC) $(OBJS) $(MLX_NAME) $(LIBC_NAME) -L$(MLX_PATH) -L/usr/lib -L$(LIBC_PATH) $(LIBC_INC) $(MLX_INC) -I$(INC) -lXext -lX11 -lm -o $(NAME) 
 #			$(CC) $(OBJS) $(LIBC_NAME) -L$(LIBC_PATH) $(LIB_INC) -I$(INC) -o $(NAME)
 			$(info minirt compiled)
 
