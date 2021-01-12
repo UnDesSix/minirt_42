@@ -1,9 +1,5 @@
-- Nombres arguments
-- Gestion de la fenetre MLX (taille, fermeture et reduction)
-- MultiCam
 - BMP --save
 - Suppression du fichier affichage des scenes
-- Binding des touches
 - Modification des noms de structures
-- Optionnel : Opti generale si possible
-- Optionnel : antialiaising
+- Norminette des includes
+- Prendre une decision sur les flags
