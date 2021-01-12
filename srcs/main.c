@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/11 22:51:43 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/12 18:11:59 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_rt_ptr(t_mini_rt *rt)
 	rt->light = NULL;
 	rt->obj = NULL;
 	rt->image = NULL;
+	rt->k = 0;
 }
 
 void	free_rt_ptr(t_mini_rt *rt)
@@ -36,20 +37,20 @@ int		main(int argc, char **argv)
 {
 	t_mini_rt	rt;
 
-	init_ptr(&rt);
+	if (argc < 2 || argc > 3)
+		return (0);
+	init_rt_ptr(&rt);
 	if (!parser(argv[1], &rt))
 		return (0);
-	compute_rotation(&rt);
 	rt.mlx = mlx_init();
-	rt.mlx_win = mlx_new_window(rt.mlx, rt.res.w, rt.res.h, "MiniRT by mlarboul");
-
+	res_max(&rt);
+	rt.mlx_win = mlx_new_window(rt.mlx, rt.res.w,
+							rt.res.h, "MiniRT by mlarboul");
 	rendering_all_cams(&rt);
-	
-	// DEAL CAMERAS AND IMAGES
-	mlx_put_image_to_window(rt.mlx, rt.mlx_win, rt.image[1].img, 0, 0);
-
-	// DEAL MLX FUNCTIONS (CLOSE, EXPOSE)
+	rt.k = 0;
+	mlx_hook(rt.mlx_win, 2, 1L << 0, key_manager, &rt);
+	mlx_hook(rt.mlx_win, 15, 1L << 16, print_again, &rt);
+	mlx_hook(rt.mlx_win, 33, 1L << 5, mouse_close_win, &rt);
 	mlx_loop(rt.mlx);
-	
 	return (0);
 }

@@ -1,6 +1,10 @@
 #ifndef ELEMENTS_H
 # define ELEMENTS_H
 
+# define LEFT_ARROW 65361
+# define RIGHT_ARROW 65363
+# define ESC 65307
+
 # define SPHERE 1
 # define PLANE 2
 # define SQUARE 3
@@ -66,6 +70,9 @@ typedef struct	s_camera
 	t_vec	pov;
 	t_vec	orient;
 	double	fov;
+	t_vec	foward;
+	t_vec	right;
+	t_vec	up;
 }				t_camera;
 
 typedef struct	s_light
@@ -98,6 +105,8 @@ typedef struct	s_mini_rt
 	t_image		*image;
 	int			pos;
 
+	int			k;
+
 	int			res_nb;
 	int			amb_nb;
 	int			cam_nb;
@@ -108,9 +117,6 @@ typedef struct	s_mini_rt
 	int			curr_light;
 	int			curr_obj;
 
-	t_vec		foward;
-	t_vec		right;
-	t_vec		up;
 
 	t_vec		dir;
 	t_res		res;

@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/11 18:57:58 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/12 18:20:03 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,23 @@
 # include "get_next_line.h"
 # include "elements.h"
 # include "parser.h"
+
+/*
+// mlx functions
+*/
+int			mouse_close_win(t_mini_rt *rt);
+int			esc_close_win(t_mini_rt *rt);
+int			print_again(t_mini_rt *rt);
+int			change_cam(int keycode, t_mini_rt *rt);
+int			key_manager(int keycode, t_mini_rt *rt);
+int			res_max(t_mini_rt *rt);
+
+/*
+// Annex functions
+*/
+void		init_rt_ptr(t_mini_rt *rt);
+void		free_rt_ptr(t_mini_rt *rt);
+
 /*
 // Ray functions
 */
@@ -32,9 +49,9 @@ void		get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir);
 void		fill_image(t_mini_rt *rt, int k);
 t_vec		compute_dir(t_mini_rt *rt, int x, int y, t_camera camera);
 void		run_mini_rt(t_mini_rt *rt, int k);
-void		compute_rotation(t_mini_rt *rt);
+void		compute_rotation(t_mini_rt *rti, int i);
 void		mess_rendering_img(int x, int y, t_mini_rt *rt, int flag);
-void		init_rt_var(t_mini_rt *rt, int x, int y);
+void		init_rt_var(t_mini_rt *rt, int x, int y, int k2);
 void		rendering_all_cams(t_mini_rt *rt);
 /*
 // Object functions

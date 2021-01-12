@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:55:19 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/11 19:04:21 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/12 20:17:42 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	fill_image(t_mini_rt *rt, int k)
 void	mess_rendering_img(int x, int y, t_mini_rt *rt, int flag)
 {
 	float		pourc;
-	static	int	image_nb = 1;
-	
+	static int	image_nb = 1;
+
 	if (flag == 1)
 	{
 		pourc = ((x + (y * rt->res.w)) * 100.0) / (rt->res.w * rt->res.h);
@@ -65,9 +65,9 @@ void	mess_rendering_img(int x, int y, t_mini_rt *rt, int flag)
 	}
 }
 
-void	init_rt_var(t_mini_rt *rt, int x, int y)
+void	init_rt_var(t_mini_rt *rt, int x, int y, int k2)
 {
-	rt->dir = vec_normalize(compute_dir(rt, x, y, rt->cam[0]));
+	rt->dir = vec_normalize(compute_dir(rt, x, y, rt->cam[k2]));
 	rt->t = 3.402823E+38;
 	rt->flag = 1;
 	rt->last_obj = &(rt->obj[0]);
@@ -87,7 +87,7 @@ void	run_mini_rt(t_mini_rt *rt, int k2)
 		x = -1;
 		while (++x < rt->res.w)
 		{
-			init_rt_var(rt, x, y);
+			init_rt_var(rt, x, y, k2);
 			k1 = 0;
 			while (k1 < rt->obj_nb)
 				get_obj_function(rt, &rt->obj[k1++], rt->cam[k2].pov, rt->dir);
