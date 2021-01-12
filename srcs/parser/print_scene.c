@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 22:13:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 22:13:32 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/12 18:34:13 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	print_all_nb(t_mini_rt *rt)
 		printf("     POV    : %2.2f, %2.2f, %2.2f \n", rt->cam[i].pov.x, rt->cam[i].pov.y, rt->cam[i].pov.z);
 		printf("     Orient : %2.2f, %2.2f, %2.2f \n", rt->cam[i].orient.x, rt->cam[i].orient.y, rt->cam[i].orient.z);
 		printf("     FOV    : %2.2f\n", rt->cam[i].fov);
+		printf("     Foward : %2.2f, %2.2f, %2.2f \n", rt->cam[i].foward.x, rt->cam[i].foward.y, rt->cam[i].foward.z);
+		printf("     Right  : %2.2f, %2.2f, %2.2f \n", rt->cam[i].right.x, rt->cam[i].right.y, rt->cam[i].right.z);
+		printf("     Up     : %2.2f, %2.2f, %2.2f \n", rt->cam[i].up.x, rt->cam[i].up.y, rt->cam[i].up.z);
 	}
 	
 	// Light
@@ -44,7 +47,7 @@ void	print_all_nb(t_mini_rt *rt)
 		printf("     Ratio  : %2.2f\n", rt->light[i].ratio);
 		printf("     Colors : %d, %d, %d \n", rt->light[i].color.r, rt->light[i].color.g, rt->light[i].color.b);
 	}
-	
+/*	
 	// Obj
 	printf("\nObject(s)    :\n");
 	for (i = 0 ; i < rt->obj_nb; i++)
@@ -94,4 +97,5 @@ void	print_all_nb(t_mini_rt *rt)
 			printf("     Colors  : %d, %d, %d \n", rt->obj[i].color.r, rt->obj[i].color.g, rt->obj[i].color.b);
 		}
 	}
+*/
 }

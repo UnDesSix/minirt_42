@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 15:44:43 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 20:33:43 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/12 18:22:15 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	camera_filler(char **tab, t_mini_rt *rt)
 	fill_points(&rt->cam[rt->curr_cam].pov, tab[1]);
 	fill_points(&rt->cam[rt->curr_cam].orient, tab[2]);
 	rt->cam[rt->curr_cam].fov = ft_atof(tab[3]);
+	compute_rotation(rt, rt->curr_cam);
 	rt->curr_cam++;
 	return (0);
 }
