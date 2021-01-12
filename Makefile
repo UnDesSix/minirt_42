@@ -1,5 +1,5 @@
-NAME		=	minirt
-CC			=	clang -g -Wall -Werror -Wextra
+NAME		=	miniRT
+CC			=	clang -Wall -Werror -Wextra -flto=thin -Ofast -O3 -fno-stack-protector -fno-math-errno -funsafe-math-optimizations -fassociative-math -freciprocal-math -funroll-loops -ftree-vectorize -finline-functions -ffp-contract=fast
 #CC			=	gcc
 RM			=	rm -rf
 
@@ -36,6 +36,7 @@ SRCS_NAME	=	main.c \
 				shape/cylinder.c \
 				shape/triangle.c \
 				visual/ray.c \
+				visual/mlx_functions.c \
 				visual/camera.c \
 				visual/shape_light.c \
 				visual/visibility.c \
