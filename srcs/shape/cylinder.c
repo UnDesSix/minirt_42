@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 18:51:07 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 14:45:46 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 07:56:58 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 void	cylinder_rotation(t_obj *cylinder)
 {

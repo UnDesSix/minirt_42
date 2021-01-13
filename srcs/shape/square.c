@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 15:50:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 14:55:25 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 08:03:12 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 int		is_in_square(t_obj *square, t_vec point)
 {

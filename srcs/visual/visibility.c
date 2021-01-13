@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 09:39:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 14:43:05 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 08:16:36 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 int	apply_shaders(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 {

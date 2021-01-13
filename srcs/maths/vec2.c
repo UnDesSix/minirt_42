@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:22:44 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/01 20:49:40 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 07:56:28 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 t_vec	vec_cross(t_vec v1, t_vec v2)
 {

@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:02 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/08 22:53:49 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 08:04:08 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 void	amb_light(t_mini_rt *rt)
 {

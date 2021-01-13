@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:43:33 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/12 20:15:41 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 08:16:46 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 int		change_cam(int keycode, t_mini_rt *rt)
 {

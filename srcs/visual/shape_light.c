@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 23:17:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/11 09:16:21 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 08:16:29 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 void	sphere_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 {

@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 06:59:00 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/12 09:39:31 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 08:04:19 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 int		res_max(t_mini_rt *rt)
 {

@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:22:58 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/01 20:49:47 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 07:56:42 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 t_vec	vec_add(t_vec v1, t_vec v2)
 {

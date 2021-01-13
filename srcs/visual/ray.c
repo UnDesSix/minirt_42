@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:55:19 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/12 20:17:42 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 08:04:25 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../../includes/mini_rt.h"
 
 void	get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 {
