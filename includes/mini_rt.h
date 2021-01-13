@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/12 18:20:03 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 21:00:13 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # include "elements.h"
 # include "parser.h"
 
+char		*get_bmp_name(char *file);
+void		init_header(t_mini_rt *rt, t_bmp_head *bmp);
+void		write_header( int fd, t_bmp_head bmp, char *buffer_img);
+int			create_bmp(t_mini_rt *rt, char *file);
 /*
 // mlx functions
 */

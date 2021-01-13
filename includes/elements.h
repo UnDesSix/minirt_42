@@ -11,13 +11,38 @@
 # define CYLINDER 4
 # define TRIANGLE 5
 
+# define HEADER_SIZE 54
+
+typedef struct	s_img_head
+{
+	int	size_img_head;
+	int	width;
+	int	height;
+	int	plans_nb;
+	int	bpp;
+	int	compression;
+	int	size_img;
+	int	height_res;
+	int	width_res;
+	int	color_pal;
+	int	important_color;
+}				t_img_head;
+
+typedef struct	s_bmp_head
+{
+	char		signature[2];
+	int			size;
+	int			rsv_byte;
+	int			offset_img;
+	t_img_head	img_head;
+}				t_bmp_head;
+
 typedef struct	s_vec
 {
 	double	x;
 	double	y;
 	double	z;
 }				t_vec;
-
 
 typedef struct	s_color
 {
