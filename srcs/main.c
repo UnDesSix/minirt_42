@@ -6,11 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/12 18:11:59 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 22:59:20 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
+
+
 
 void	init_rt_ptr(t_mini_rt *rt)
 {
@@ -47,6 +49,7 @@ int		main(int argc, char **argv)
 	rt.mlx_win = mlx_new_window(rt.mlx, rt.res.w,
 							rt.res.h, "MiniRT by mlarboul");
 	rendering_all_cams(&rt);
+	create_bmp(&rt, argv[1]);
 	rt.k = 0;
 	mlx_hook(rt.mlx_win, 2, 1L << 0, key_manager, &rt);
 	mlx_hook(rt.mlx_win, 15, 1L << 16, print_again, &rt);

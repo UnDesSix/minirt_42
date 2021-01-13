@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:31:31 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/11 19:14:03 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/13 13:44:02 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	wrong_nb_of_elem(t_mini_rt *rt)
 		printf("You forgot the resolution.\n");
 	if (rt->amb_nb < 1)
 		printf("You forgot the ambient light.\n");
-	if (rt->res_nb == 1 || rt->amb_nb == 1 || rt->cam_nb > 0)
+	if (rt->res_nb == 1 && rt->amb_nb == 1 && rt->cam_nb > 0)
 		return (0);
 	return (1);
 }
