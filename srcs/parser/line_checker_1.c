@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 15:44:43 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 09:38:16 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 10:20:25 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_fct	identify_type(char *s)
 	return (0);
 }
 
-int	resolution_checker(char **tab, t_saver *rt)
+int		resolution_checker(char **tab, t_saver *rt)
 {
 	int	value;
 
@@ -64,7 +64,7 @@ int	resolution_checker(char **tab, t_saver *rt)
 	return (1);
 }
 
-int	ambient_checker(char **tab, t_saver *rt)
+int		ambient_checker(char **tab, t_saver *rt)
 {
 	float	value;
 
@@ -84,7 +84,7 @@ int	ambient_checker(char **tab, t_saver *rt)
 	return (1);
 }
 
-int	camera_checker(char **tab, t_saver *rt)
+int		camera_checker(char **tab, t_saver *rt)
 {
 	float	value;
 
@@ -106,7 +106,7 @@ int	camera_checker(char **tab, t_saver *rt)
 	return (1);
 }
 
-int	light_checker(char **tab, t_saver *rt)
+int		light_checker(char **tab, t_saver *rt)
 {
 	float	value;
 

@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 09:15:24 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 10:18:08 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 void	free_mlx(t_saver *rt, char *flag)
 {
 	if (!(ft_strncmp(flag, "--save", 7)))
+	{
+		printf("The BMP file has been saved into saved_images repository.\n");
 		mlx_destroy_image(rt->mlx, rt->image[0].img);
+	}
+	else
+		printf("Something wrong happened while creating images.\n");
 	mlx_destroy_display(rt->mlx);
 	free_rt_ptr(rt);
 	free(rt->mlx);

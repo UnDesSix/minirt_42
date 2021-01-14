@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 09:38:50 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 10:21:07 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	split_line_2(char *line, t_saver *rt)
 {
-	char		**tab;
-	t_fct			line_filler;
+	char	**tab;
+	t_fct	line_filler;
 
 	tab = ft1_split(line, " \f\r\r\t\v");
 	if (tab[0])
@@ -49,10 +49,10 @@ int		parser_part_2(char *file_name, t_saver *rt)
 
 int		split_line_1(char *line, t_saver *rt, int *i)
 {
-	char		**tab;
-	t_fct			line_checker;
-	int			error_code;
-	int			r_value;
+	char	**tab;
+	t_fct	line_checker;
+	int		error_code;
+	int		r_value;
 
 	r_value = 1;
 	tab = ft1_split(line, " \f\r\r\t\v");
