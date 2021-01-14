@@ -3,3 +3,4 @@
 *.swp
 ~*
 miniRT
+print_scene.c
