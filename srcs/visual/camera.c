@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:43:33 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 15:14:41 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:01:45 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,28 @@ int		change_cam(int keycode, t_mini_rt *rt)
 	return (0);
 }
 
+void	rendering_one_img(t_mini_rt *rt, char *file)
+{
+	rt->image[0].img = mlx_new_image(rt->mlx, rt->res.w, rt->res.h);
+	rt->image[0].buffer = mlx_get_data_addr(
+			rt->image[0].img, &rt->image[0].bpp,
+			&rt->image[0].line_length, &rt->image[0].endian);
+	run_mini_rt(rt, 0);
+	create_bmp(rt, file);
+}
+
 void	rendering_all_cams(t_mini_rt *rt)
 {
 	while (rt->k < rt->cam_nb)
 	{
 		rt->image[rt->k].img = mlx_new_image(rt->mlx, rt->res.w, rt->res.h);
 		rt->image[rt->k].buffer = mlx_get_data_addr(
-			rt->image[rt->k].img, &rt->image[rt->k].bpp,
+				rt->image[rt->k].img, &rt->image[rt->k].bpp,
 				&rt->image[rt->k].line_length, &rt->image[rt->k].endian);
 		run_mini_rt(rt, rt->k);
 		if (rt->k == 0)
 			mlx_put_image_to_window(rt->mlx, rt->mlx_win,
-									rt->image[rt->k].img, 0, 0);
+					rt->image[rt->k].img, 0, 0);
 		(rt->k)++;
 	}
 }
@@ -68,10 +78,10 @@ t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
 	pixel.z = rt->res.w / (2 * tan((camera.fov * M_PI / 180 / 2)));
 	tmp = pixel;
 	pixel.x = tmp.x * camera.right.x + tmp.y *
-						camera.up.x + tmp.z * camera.foward.x;
+		camera.up.x + tmp.z * camera.foward.x;
 	pixel.y = tmp.x * camera.right.y + tmp.y *
-						camera.up.y + tmp.z * camera.foward.y;
+		camera.up.y + tmp.z * camera.foward.y;
 	pixel.z = tmp.x * camera.right.z + tmp.y *
-						camera.up.z + tmp.z * camera.foward.z;
+		camera.up.z + tmp.z * camera.foward.z;
 	return (pixel);
 }

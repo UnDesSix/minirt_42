@@ -6,13 +6,21 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 22:59:20 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 08:57:19 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
 
-
+void	free_mlx(t_mini_rt *rt, char *flag)
+{
+	if (!(ft_strncmp(flag, "--save", 7)))
+		mlx_destroy_image(rt->mlx, rt->image[0].img);
+	mlx_destroy_display(rt->mlx);
+	free_rt_ptr(rt);
+	free(rt->mlx);
+	exit(0);
+}
 
 void	init_rt_ptr(t_mini_rt *rt)
 {
@@ -45,11 +53,16 @@ int		main(int argc, char **argv)
 	if (!parser(argv[1], &rt))
 		return (0);
 	rt.mlx = mlx_init();
+	if (argc == 3)
+	{
+		if (!(ft_strncmp(argv[2], "--save", 7)))
+			rendering_one_img(&rt, argv[1]);
+		free_mlx(&rt, argv[2]);
+	}
 	res_max(&rt);
 	rt.mlx_win = mlx_new_window(rt.mlx, rt.res.w,
 							rt.res.h, "MiniRT by mlarboul");
 	rendering_all_cams(&rt);
-	create_bmp(&rt, argv[1]);
 	rt.k = 0;
 	mlx_hook(rt.mlx_win, 2, 1L << 0, key_manager, &rt);
 	mlx_hook(rt.mlx_win, 15, 1L << 16, print_again, &rt);
