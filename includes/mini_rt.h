@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 21:00:13 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:05:05 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int			res_max(t_mini_rt *rt);
 /*
 // Annex functions
 */
+void		free_mlx(t_mini_rt *rt, char* flag);
 void		init_rt_ptr(t_mini_rt *rt);
 void		free_rt_ptr(t_mini_rt *rt);
 
@@ -57,6 +58,8 @@ void		compute_rotation(t_mini_rt *rti, int i);
 void		mess_rendering_img(int x, int y, t_mini_rt *rt, int flag);
 void		init_rt_var(t_mini_rt *rt, int x, int y, int k2);
 void		rendering_all_cams(t_mini_rt *rt);
+void		rendering_one_img(t_mini_rt *rt, char *line);
+
 /*
 // Object functions
 */
