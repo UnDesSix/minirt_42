@@ -1,5 +1,2 @@
-- BMP --save
-- Suppression du fichier affichage des scenes
 - Modification des noms de structures
-- Norminette des includes
 - Prendre une decision sur les flags
