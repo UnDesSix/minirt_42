@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:42:29 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 09:34:22 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 22:05:39 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int			change_cam(int keycode, t_saver *rt);
 int			key_manager(int keycode, t_saver *rt);
 int			res_max(t_saver *rt);
 
-void		free_mlx(t_saver *rt, char *flag);
+int			argc_error_msg(int argc);
+int			save_img(t_saver *rt, char *file, char *flag);
 void		init_rt_ptr(t_saver *rt);
 void		free_rt_ptr(t_saver *rt);
 
@@ -50,7 +51,7 @@ void		compute_rotation(t_saver *rti, int i);
 void		mess_rendering_img(int x, int y, t_saver *rt, int flag);
 void		init_rt_var(t_saver *rt, int x, int y, int k2);
 void		rendering_all_cams(t_saver *rt);
-void		rendering_one_img(t_saver *rt, char *line);
+int			rendering_one_img(t_saver *rt, char *line);
 
 void		ft_sphere(t_saver *rt, t_obj *sphere, t_vec ori, t_vec dir);
 void		ft_plane(t_saver *rt, t_obj *plane, t_vec ori, t_vec dir);

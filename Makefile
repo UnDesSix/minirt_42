@@ -1,5 +1,5 @@
 NAME		=	miniRT
-CC			=	clang -Wall -Werror -Wextra -flto=thin -Ofast -O3 -fno-stack-protector -fno-math-errno -funsafe-math-optimizations -fassociative-math -freciprocal-math -funroll-loops -ftree-vectorize -finline-functions -ffp-contract=fast
+CC			=	clang -Wall -Werror -Wextra
 RM			=	rm -rf
 
 MLX_PATH	=	./libs/minilibx-linux/

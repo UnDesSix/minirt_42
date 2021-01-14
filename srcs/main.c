@@ -6,25 +6,30 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 10:18:08 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 23:08:24 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minirt.h"
 
-void	free_mlx(t_saver *rt, char *flag)
+int		save_img(t_saver *rt, char *file, char *flag)
 {
 	if (!(ft_strncmp(flag, "--save", 7)))
 	{
-		printf("The BMP file has been saved into saved_images repository.\n");
-		mlx_destroy_image(rt->mlx, rt->image[0].img);
+		if (rendering_one_img(rt, file) < 0)
+			printf("Something went wrong while creating the BMP file.\n");
+		else
+		{
+			printf("The BMP file has been saved into saved_images repo.\n");
+			mlx_destroy_image(rt->mlx, rt->image[0].img);
+		}
 	}
 	else
-		printf("Something wrong happened while creating images.\n");
+		printf("%s is not a valid flag. Please use --save.\n", flag);
 	mlx_destroy_display(rt->mlx);
 	free_rt_ptr(rt);
 	free(rt->mlx);
-	exit(0);
+	return (0);
 }
 
 void	init_rt_ptr(t_saver *rt)
@@ -59,11 +64,7 @@ int		main(int argc, char **argv)
 		return (0);
 	rt.mlx = mlx_init();
 	if (argc == 3)
-	{
-		if (!(ft_strncmp(argv[2], "--save", 7)))
-			rendering_one_img(&rt, argv[1]);
-		free_mlx(&rt, argv[2]);
-	}
+		return (save_img(&rt, argv[1], argv[2]));
 	res_max(&rt);
 	rt.mlx_win = mlx_new_window(rt.mlx, rt.res.w,
 							rt.res.h, "MiniRT by mlarboul");

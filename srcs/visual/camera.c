@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:43:33 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 09:24:45 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 22:02:19 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,16 @@ int		change_cam(int keycode, t_saver *rt)
 	return (0);
 }
 
-void	rendering_one_img(t_saver *rt, char *file)
+int		rendering_one_img(t_saver *rt, char *file)
 {
 	rt->image[0].img = mlx_new_image(rt->mlx, rt->res.w, rt->res.h);
 	rt->image[0].buffer = mlx_get_data_addr(
 			rt->image[0].img, &rt->image[0].bpp,
 			&rt->image[0].line_length, &rt->image[0].endian);
 	run_saver(rt, 0);
-	create_bmp(rt, file);
+	if (create_bmp(rt, file) < 0)
+		return (-1);
+	return (0);
 }
 
 void	rendering_all_cams(t_saver *rt)

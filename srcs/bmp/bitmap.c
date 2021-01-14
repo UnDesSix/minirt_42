@@ -6,7 +6,7 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 07:55:43 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 09:20:06 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 22:09:14 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		create_bmp(t_saver *rt, char *file)
 	int			fd;
 	char		*bmp_name;
 
-	if ((bmp_name = get_bmp_name(file)) < 0)
+	if (!(bmp_name = get_bmp_name(file)))
 		return (-1);
 	if ((fd = open(bmp_name, O_WRONLY | O_TRUNC | O_CREAT, 0755)) < 0)
 		return (-2);

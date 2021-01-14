@@ -1,2 +1,0 @@
-- Modification des noms de structures
-- Prendre une decision sur les flags
