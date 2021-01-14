@@ -1,6 +1,5 @@
 NAME		=	miniRT
 CC			=	clang -Wall -Werror -Wextra -flto=thin -Ofast -O3 -fno-stack-protector -fno-math-errno -funsafe-math-optimizations -fassociative-math -freciprocal-math -funroll-loops -ftree-vectorize -finline-functions -ffp-contract=fast
-#CC			=	gcc
 RM			=	rm -rf
 
 MLX_PATH	=	./libs/minilibx-linux/
@@ -46,19 +45,16 @@ SRCS_NAME	=	main.c \
 
 SRCS		=	$(addprefix $(SRCS_PATH), $(SRCS_NAME))
 OBJS		=	$(SRCS:.c=.o)
-#OBJS		=	$(addprefix $(OBJS_PATH), $(OBJS_NAME))
 
 all:		$(NAME)
 
 %.o:		%.c
 			@$(CC) -I$(INC) $(MLX_INC) $(LIBC_INC) -c $< -o $@
-#			$(CC) -I$(INC) $(LIBC_INC) -c $< -o $@
 
 $(NAME):	$(OBJS)
 			@make --silent -C $(MLX_PATH)
 			@make --silent -C $(LIBC_PATH)
 			@$(CC) $(OBJS) $(MLX_NAME) $(LIBC_NAME) -L$(MLX_PATH) -L/usr/lib -L$(LIBC_PATH) $(LIBC_INC) $(MLX_INC) -I$(INC) -lXext -lX11 -lm -o $(NAME) 
-#			$(CC) $(OBJS) $(LIBC_NAME) -L$(LIBC_PATH) $(LIB_INC) -I$(INC) -o $(NAME)
 			$(info minirt compiled)
 
 clean:
