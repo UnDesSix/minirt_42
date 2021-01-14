@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:52:17 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/11 18:53:48 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:21:22 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	init_all_nb(t_mini_rt *rt)
+void	init_all_nb(t_saver *rt)
 {
 	rt->res_nb = 0;
 	rt->amb_nb = 0;
@@ -37,7 +37,7 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-int		malloc_elem(t_mini_rt *rt)
+int		malloc_elem(t_saver *rt)
 {
 	if (!(rt->cam = malloc(sizeof(t_camera) * rt->cam_nb)))
 	{

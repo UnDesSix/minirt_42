@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 07:55:43 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 21:40:48 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:20:06 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
 char	*get_bmp_name(char *file)
 {
@@ -41,7 +41,7 @@ char	*get_bmp_name(char *file)
 	return (name);
 }
 
-void	init_header(t_mini_rt *rt, t_bmp_head *bmp)
+void	init_header(t_saver *rt, t_bmp_head *bmp)
 {
 	bmp->signature[0] = 'B';
 	bmp->signature[1] = 'M';
@@ -81,7 +81,7 @@ void	write_header(int fd, t_bmp_head bmp, char *img_buffer)
 	write(fd, &img_buffer[0], bmp.img_head.size_img);
 }
 
-int		create_bmp(t_mini_rt *rt, char *file)
+int		create_bmp(t_saver *rt, char *file)
 {
 	t_bmp_head	bmp;
 	int			fd;

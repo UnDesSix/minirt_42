@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:21 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 08:57:19 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:15:24 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/mini_rt.h"
+#include "../includes/minirt.h"
 
-void	free_mlx(t_mini_rt *rt, char *flag)
+void	free_mlx(t_saver *rt, char *flag)
 {
 	if (!(ft_strncmp(flag, "--save", 7)))
 		mlx_destroy_image(rt->mlx, rt->image[0].img);
@@ -22,7 +22,7 @@ void	free_mlx(t_mini_rt *rt, char *flag)
 	exit(0);
 }
 
-void	init_rt_ptr(t_mini_rt *rt)
+void	init_rt_ptr(t_saver *rt)
 {
 	rt->cam = NULL;
 	rt->light = NULL;
@@ -31,7 +31,7 @@ void	init_rt_ptr(t_mini_rt *rt)
 	rt->k = 0;
 }
 
-void	free_rt_ptr(t_mini_rt *rt)
+void	free_rt_ptr(t_saver *rt)
 {
 	if (rt->cam)
 		free(rt->cam);
@@ -45,7 +45,7 @@ void	free_rt_ptr(t_mini_rt *rt)
 
 int		main(int argc, char **argv)
 {
-	t_mini_rt	rt;
+	t_saver	rt;
 
 	if (argc < 2 || argc > 3)
 		return (0);

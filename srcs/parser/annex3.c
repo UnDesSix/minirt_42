@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 10:56:48 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 22:14:08 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:21:33 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
 void	fill_colors(t_color *elem, char *s)
 {

@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:26:44 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 17:18:28 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:22:36 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-int	sphere_checker(char **tab, t_mini_rt *rt)
+int	sphere_checker(char **tab, t_saver *rt)
 {
 	float	value;
 
@@ -31,7 +31,7 @@ int	sphere_checker(char **tab, t_mini_rt *rt)
 	return (1);
 }
 
-int	plane_checker(char **tab, t_mini_rt *rt)
+int	plane_checker(char **tab, t_saver *rt)
 {
 	if (!tab[1] || !ft_is_coord(tab[1], POINTS))
 		return (-1);
@@ -45,7 +45,7 @@ int	plane_checker(char **tab, t_mini_rt *rt)
 	return (1);
 }
 
-int	square_checker(char **tab, t_mini_rt *rt)
+int	square_checker(char **tab, t_saver *rt)
 {
 	float	value;
 
@@ -66,7 +66,7 @@ int	square_checker(char **tab, t_mini_rt *rt)
 	return (1);
 }
 
-int	cylinder_checker(char **tab, t_mini_rt *rt)
+int	cylinder_checker(char **tab, t_saver *rt)
 {
 	float	value;
 
@@ -92,7 +92,7 @@ int	cylinder_checker(char **tab, t_mini_rt *rt)
 	return (1);
 }
 
-int	triangle_checker(char **tab, t_mini_rt *rt)
+int	triangle_checker(char **tab, t_saver *rt)
 {
 	if (!tab[1] || !ft_is_coord(tab[1], POINTS))
 		return (-1);

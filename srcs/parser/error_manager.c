@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:31:31 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 13:44:02 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:21:45 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
 int	parsing_error(int line, int code_error)
 {
@@ -62,7 +62,7 @@ int	extension_is_wrong(char *str)
 	return (0);
 }
 
-int	wrong_nb_of_elem(t_mini_rt *rt)
+int	wrong_nb_of_elem(t_saver *rt)
 {
 	if (rt->res_nb != 1 || rt->amb_nb != 1 || rt->cam_nb < 1)
 		printf("\033[1;37mParsing error(s) :\033[0m\n");

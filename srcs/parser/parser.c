@@ -6,16 +6,16 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/12 20:13:59 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:38:50 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	split_line_2(char *line, t_mini_rt *rt)
+void	split_line_2(char *line, t_saver *rt)
 {
 	char		**tab;
-	fct			line_filler;
+	t_fct			line_filler;
 
 	tab = ft1_split(line, " \f\r\r\t\v");
 	if (tab[0])
@@ -24,7 +24,7 @@ void	split_line_2(char *line, t_mini_rt *rt)
 	free_tab(tab);
 }
 
-int		parser_part_2(char *file_name, t_mini_rt *rt)
+int		parser_part_2(char *file_name, t_saver *rt)
 {
 	char	*line;
 	int		fd;
@@ -47,10 +47,10 @@ int		parser_part_2(char *file_name, t_mini_rt *rt)
 	return (error_code);
 }
 
-int		split_line_1(char *line, t_mini_rt *rt, int *i)
+int		split_line_1(char *line, t_saver *rt, int *i)
 {
 	char		**tab;
-	fct			line_checker;
+	t_fct			line_checker;
 	int			error_code;
 	int			r_value;
 
@@ -69,7 +69,7 @@ int		split_line_1(char *line, t_mini_rt *rt, int *i)
 	return (r_value);
 }
 
-int		parser_part_1(char *file_name, t_mini_rt *rt)
+int		parser_part_1(char *file_name, t_saver *rt)
 {
 	char		*line;
 	int			fd;
@@ -98,7 +98,7 @@ int		parser_part_1(char *file_name, t_mini_rt *rt)
 	return (error_code);
 }
 
-int		parser(char *file_name, t_mini_rt *rt)
+int		parser(char *file_name, t_saver *rt)
 {
 	if (extension_is_wrong(file_name))
 		return (0);

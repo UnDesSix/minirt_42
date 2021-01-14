@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:30 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 07:57:06 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:23:56 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	ft_plane(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
+void	ft_plane(t_saver *rt, t_obj *obj, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 
@@ -29,7 +29,7 @@ void	ft_plane(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 	}
 }
 
-int		plane_shaders(t_mini_rt *rt, t_obj *plane, t_vec ori, t_vec dir)
+int		plane_shaders(t_saver *rt, t_obj *plane, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 

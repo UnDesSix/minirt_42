@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 23:17:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:16:29 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:25:24 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	sphere_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
+void	sphere_light(t_saver *rt, t_vec ori, t_vec dir, t_light light)
 {
 	t_vec	point;
 	t_vec	v_normal;
@@ -31,7 +31,7 @@ void	sphere_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 				pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 }
 
-void	plane_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
+void	plane_light(t_saver *rt, t_vec ori, t_vec dir, t_light light)
 {
 	t_vec	point;
 	t_vec	v_normal;
@@ -50,7 +50,7 @@ void	plane_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 				pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 }
 
-void	square_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
+void	square_light(t_saver *rt, t_vec ori, t_vec dir, t_light light)
 {
 	t_vec	point;
 	t_vec	v_normal;
@@ -69,7 +69,7 @@ void	square_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 				pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 }
 
-void	triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
+void	triangle_light(t_saver *rt, t_vec ori, t_vec dir, t_light light)
 {
 	t_vec	point;
 	t_vec	v_normal;
@@ -91,7 +91,7 @@ void	triangle_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
 				pow(vec_length(vec_sub(light.point, point)) / 100, 2))));
 }
 
-void	cylinder_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
+void	cylinder_light(t_saver *rt, t_vec ori, t_vec dir, t_light light)
 {
 	t_vec	point;
 	t_vec	v_normal;

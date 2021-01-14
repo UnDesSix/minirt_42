@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:43:33 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/14 09:01:45 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:24:45 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-int		change_cam(int keycode, t_mini_rt *rt)
+int		change_cam(int keycode, t_saver *rt)
 {
 	if (keycode == RIGHT_ARROW)
 		(rt->k)++;
@@ -26,17 +26,17 @@ int		change_cam(int keycode, t_mini_rt *rt)
 	return (0);
 }
 
-void	rendering_one_img(t_mini_rt *rt, char *file)
+void	rendering_one_img(t_saver *rt, char *file)
 {
 	rt->image[0].img = mlx_new_image(rt->mlx, rt->res.w, rt->res.h);
 	rt->image[0].buffer = mlx_get_data_addr(
 			rt->image[0].img, &rt->image[0].bpp,
 			&rt->image[0].line_length, &rt->image[0].endian);
-	run_mini_rt(rt, 0);
+	run_saver(rt, 0);
 	create_bmp(rt, file);
 }
 
-void	rendering_all_cams(t_mini_rt *rt)
+void	rendering_all_cams(t_saver *rt)
 {
 	while (rt->k < rt->cam_nb)
 	{
@@ -44,7 +44,7 @@ void	rendering_all_cams(t_mini_rt *rt)
 		rt->image[rt->k].buffer = mlx_get_data_addr(
 				rt->image[rt->k].img, &rt->image[rt->k].bpp,
 				&rt->image[rt->k].line_length, &rt->image[rt->k].endian);
-		run_mini_rt(rt, rt->k);
+		run_saver(rt, rt->k);
 		if (rt->k == 0)
 			mlx_put_image_to_window(rt->mlx, rt->mlx_win,
 					rt->image[rt->k].img, 0, 0);
@@ -52,7 +52,7 @@ void	rendering_all_cams(t_mini_rt *rt)
 	}
 }
 
-void	compute_rotation(t_mini_rt *rt, int i)
+void	compute_rotation(t_saver *rt, int i)
 {
 	t_vec	tmp;
 
@@ -68,7 +68,7 @@ void	compute_rotation(t_mini_rt *rt, int i)
 	rt->cam[i].up = vec_normalize(rt->cam[i].up);
 }
 
-t_vec	compute_dir(t_mini_rt *rt, int x, int y, t_camera camera)
+t_vec	compute_dir(t_saver *rt, int x, int y, t_camera camera)
 {
 	t_vec	pixel;
 	t_vec	tmp;

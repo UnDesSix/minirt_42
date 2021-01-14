@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 06:59:00 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:04:19 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:25:06 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-int		res_max(t_mini_rt *rt)
+int		res_max(t_saver *rt)
 {
 	int	width_max;
 	int	height_max;
@@ -25,7 +25,7 @@ int		res_max(t_mini_rt *rt)
 	return (0);
 }
 
-int		key_manager(int keycode, t_mini_rt *rt)
+int		key_manager(int keycode, t_saver *rt)
 {
 	if (keycode == ESC)
 		esc_close_win(rt);
@@ -34,7 +34,7 @@ int		key_manager(int keycode, t_mini_rt *rt)
 	return (0);
 }
 
-int		mouse_close_win(t_mini_rt *rt)
+int		mouse_close_win(t_saver *rt)
 {
 	int k;
 
@@ -49,7 +49,7 @@ int		mouse_close_win(t_mini_rt *rt)
 	return (0);
 }
 
-int		esc_close_win(t_mini_rt *rt)
+int		esc_close_win(t_saver *rt)
 {
 	int k;
 
@@ -64,7 +64,7 @@ int		esc_close_win(t_mini_rt *rt)
 	return (0);
 }
 
-int		print_again(t_mini_rt *rt)
+int		print_again(t_saver *rt)
 {
 	mlx_put_image_to_window(rt->mlx, rt->mlx_win, rt->image[rt->k].img, 0, 0);
 	return (0);

@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:30 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:03:27 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:39:01 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	ft_triangle(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
+void	ft_triangle(t_saver *rt, t_obj *triangle, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 
@@ -20,7 +20,7 @@ void	ft_triangle(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
 	s.v2 = vec_sub(triangle->point3, triangle->point1);
 	s.pvec = vec_cross(dir, s.v2);
 	s.delta = vec_dot(s.v1, s.pvec);
-	if (s.delta < 0.0001 && s.delta > -0.0001)
+	if (s.delta < 0.00001 && s.delta > -0.00001)
 		return ;
 	s.c = 1.0 / s.delta;
 	s.tvec = vec_sub(ori, triangle->point1);
@@ -32,7 +32,7 @@ void	ft_triangle(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
 	if (s.b < 0.0 || s.a + s.b > 1.0)
 		return ;
 	s.t1 = vec_dot(s.v2, s.tvec) * s.c;
-	if (s.t1 > 0.000001f && s.t1 < rt->t)
+	if (s.t1 > 0.00001f && s.t1 < rt->t)
 	{
 		rt->t = s.t1;
 		rt->last_obj = triangle;
@@ -40,7 +40,7 @@ void	ft_triangle(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
 	}
 }
 
-int		triangle_shaders(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
+int		triangle_shaders(t_saver *rt, t_obj *triangle, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 
@@ -60,7 +60,7 @@ int		triangle_shaders(t_mini_rt *rt, t_obj *triangle, t_vec ori, t_vec dir)
 	if (s.b < 0.0 || s.a + s.b > 1.0)
 		return (0);
 	s.t1 = vec_dot(s.v2, s.tvec) * s.c;
-	if (s.t1 > 0.000001f && s.t1 < rt->t)
+	if (s.t1 > 0.00001f && s.t1 < rt->t)
 	{
 		rt->vis_t1 = s.t1;
 		return (1);

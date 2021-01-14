@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 18:51:07 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 07:56:58 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:23:46 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
 void	cylinder_rotation(t_obj *cylinder)
 {
@@ -27,7 +27,7 @@ void	cylinder_rotation(t_obj *cylinder)
 	cylinder->right = vec_normalize(cylinder->right);
 }
 
-void	ft_cylinder(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
+void	ft_cylinder(t_saver *rt, t_obj *cylinder, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 	double	delta;
@@ -53,7 +53,7 @@ void	ft_cylinder(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
 			return ;
 }
 
-int		ft_cylinder2(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point)
+int		ft_cylinder2(t_saver *rt, t_obj *cylinder, float t, t_vec point)
 {
 	double	z;
 
@@ -66,7 +66,7 @@ int		ft_cylinder2(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point)
 	return (1);
 }
 
-int		cylinder2_sh(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point)
+int		cylinder2_sh(t_saver *rt, t_obj *cylinder, float t, t_vec point)
 {
 	double	z;
 
@@ -77,7 +77,7 @@ int		cylinder2_sh(t_mini_rt *rt, t_obj *cylinder, float t, t_vec point)
 	return (1);
 }
 
-int		cylinder_shaders(t_mini_rt *rt, t_obj *cylinder, t_vec ori, t_vec dir)
+int		cylinder_shaders(t_saver *rt, t_obj *cylinder, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 	double	delta;

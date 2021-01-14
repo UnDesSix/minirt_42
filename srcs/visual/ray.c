@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:55:19 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:04:25 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:25:17 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
+void	get_obj_function(t_saver *rt, t_obj *obj, t_vec ori, t_vec dir)
 {
 	if (obj->type == SPHERE)
 		ft_sphere(rt, obj, ori, dir);
@@ -28,7 +28,7 @@ void	get_obj_function(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 		return ;
 }
 
-void	fill_image(t_mini_rt *rt, int k)
+void	fill_image(t_saver *rt, int k)
 {
 	if (!rt->flag)
 	{
@@ -46,7 +46,7 @@ void	fill_image(t_mini_rt *rt, int k)
 	rt->pos += 4;
 }
 
-void	mess_rendering_img(int x, int y, t_mini_rt *rt, int flag)
+void	mess_rendering_img(int x, int y, t_saver *rt, int flag)
 {
 	float		pourc;
 	static int	image_nb = 1;
@@ -65,7 +65,7 @@ void	mess_rendering_img(int x, int y, t_mini_rt *rt, int flag)
 	}
 }
 
-void	init_rt_var(t_mini_rt *rt, int x, int y, int k2)
+void	init_rt_var(t_saver *rt, int x, int y, int k2)
 {
 	rt->dir = vec_normalize(compute_dir(rt, x, y, rt->cam[k2]));
 	rt->t = 3.402823E+38;
@@ -74,7 +74,7 @@ void	init_rt_var(t_mini_rt *rt, int x, int y, int k2)
 	init_color(rt);
 }
 
-void	run_mini_rt(t_mini_rt *rt, int k2)
+void	run_saver(t_saver *rt, int k2)
 {
 	int			x;
 	int			y;

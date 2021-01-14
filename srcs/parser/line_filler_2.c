@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 20:26:44 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/10 22:15:47 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:22:54 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-int	sphere_filler(char **tab, t_mini_rt *rt)
+int	sphere_filler(char **tab, t_saver *rt)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	sphere_filler(char **tab, t_mini_rt *rt)
 	return (0);
 }
 
-int	plane_filler(char **tab, t_mini_rt *rt)
+int	plane_filler(char **tab, t_saver *rt)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ int	plane_filler(char **tab, t_mini_rt *rt)
 	return (0);
 }
 
-int	square_filler(char **tab, t_mini_rt *rt)
+int	square_filler(char **tab, t_saver *rt)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ int	square_filler(char **tab, t_mini_rt *rt)
 	return (0);
 }
 
-int	cylinder_filler(char **tab, t_mini_rt *rt)
+int	cylinder_filler(char **tab, t_saver *rt)
 {
 	int	i;
 
@@ -72,7 +72,7 @@ int	cylinder_filler(char **tab, t_mini_rt *rt)
 	return (0);
 }
 
-int	triangle_filler(char **tab, t_mini_rt *rt)
+int	triangle_filler(char **tab, t_saver *rt)
 {
 	int	i;
 

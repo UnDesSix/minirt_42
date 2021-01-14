@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 09:39:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:16:36 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:25:36 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-int	apply_shaders(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
+int	apply_shaders(t_saver *rt, t_obj *obj, t_vec ori, t_vec dir)
 {
 	if (obj->type == SPHERE)
 		return (sphere_shaders(rt, obj, ori, dir));
@@ -27,7 +27,7 @@ int	apply_shaders(t_mini_rt *rt, t_obj *obj, t_vec ori, t_vec dir)
 	return (0);
 }
 
-int	is_visible(t_mini_rt *rt, t_light light, t_vec ori, t_vec normal)
+int	is_visible(t_saver *rt, t_light light, t_vec ori, t_vec normal)
 {
 	int		k;
 	t_vec	dir;

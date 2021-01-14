@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 15:44:43 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/12 18:22:15 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:38:34 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-fct	identify_type_2(char *s)
+t_fct	identify_type_2(char *s)
 {
 	size_t	s_len;
 
@@ -38,21 +38,21 @@ fct	identify_type_2(char *s)
 	return (0);
 }
 
-int	resolution_filler(char **tab, t_mini_rt *rt)
+int	resolution_filler(char **tab, t_saver *rt)
 {
 	rt->res.w = ft_atoi(tab[1]);
 	rt->res.h = ft_atoi(tab[2]);
 	return (0);
 }
 
-int	ambient_filler(char **tab, t_mini_rt *rt)
+int	ambient_filler(char **tab, t_saver *rt)
 {
 	rt->amb.ratio = ft_atof(tab[1]);
 	fill_colors(&rt->amb.color, tab[2]);
 	return (0);
 }
 
-int	camera_filler(char **tab, t_mini_rt *rt)
+int	camera_filler(char **tab, t_saver *rt)
 {
 	fill_points(&rt->cam[rt->curr_cam].pov, tab[1]);
 	fill_points(&rt->cam[rt->curr_cam].orient, tab[2]);
@@ -62,7 +62,7 @@ int	camera_filler(char **tab, t_mini_rt *rt)
 	return (0);
 }
 
-int	light_filler(char **tab, t_mini_rt *rt)
+int	light_filler(char **tab, t_saver *rt)
 {
 	fill_points(&rt->light[rt->curr_light].point, tab[1]);
 	rt->light[rt->curr_light].ratio = ft_atof(tab[2]);

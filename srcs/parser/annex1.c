@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 10:28:27 by mlarboul          #+#    #+#             */
-/*   Updated: 2020/12/30 20:17:05 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:20:38 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
 int		contains_two_commas(char *s, char **tab)
 {

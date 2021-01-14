@@ -6,11 +6,11 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 15:50:11 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:03:12 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:24:15 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
 int		is_in_square(t_obj *square, t_vec point)
 {
@@ -21,7 +21,7 @@ int		is_in_square(t_obj *square, t_vec point)
 	return (1);
 }
 
-void	ft_square(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir)
+void	ft_square(t_saver *rt, t_obj *square, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 	t_vec	point;
@@ -42,7 +42,7 @@ void	ft_square(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir)
 	}
 }
 
-int		square_shaders(t_mini_rt *rt, t_obj *square, t_vec ori, t_vec dir)
+int		square_shaders(t_saver *rt, t_obj *square, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 	t_vec	point;

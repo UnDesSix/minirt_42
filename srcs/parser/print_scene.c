@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 22:13:22 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/12 18:34:13 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:23:12 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	print_all_nb(t_mini_rt *rt)
+void	print_all_nb(t_saver *rt)
 {
 	int i;
 

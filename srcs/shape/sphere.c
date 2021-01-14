@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:37 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:03:04 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:24:07 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	ft_sphere(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
+void	ft_sphere(t_saver *rt, t_obj *sphere, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 	double	delta;
@@ -40,7 +40,7 @@ void	ft_sphere(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
 	}
 }
 
-int		sphere_shaders(t_mini_rt *rt, t_obj *sphere, t_vec ori, t_vec dir)
+int		sphere_shaders(t_saver *rt, t_obj *sphere, t_vec ori, t_vec dir)
 {
 	t_solve	s;
 	double	delta;

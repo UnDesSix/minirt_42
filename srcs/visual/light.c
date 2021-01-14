@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 14:21:02 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:04:08 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:25:00 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	amb_light(t_mini_rt *rt)
+void	amb_light(t_saver *rt)
 {
 	rt->tmp_color.r = min_max_colors((rt->tmp_color.r + sqrt((rt->amb.ratio
 	* rt->amb.color.r) * (rt->last_obj->color.r))));
@@ -22,7 +22,7 @@ void	amb_light(t_mini_rt *rt)
 	* rt->amb.color.b) * (rt->last_obj->color.b))));
 }
 
-void	apply_light(t_mini_rt *rt, t_vec ori, t_vec dir, t_light light)
+void	apply_light(t_saver *rt, t_vec ori, t_vec dir, t_light light)
 {
 	if (rt->last_obj->type == SPHERE)
 		sphere_light(rt, ori, dir, light);

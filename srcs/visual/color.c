@@ -6,13 +6,13 @@
 /*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:56:52 by mlarboul          #+#    #+#             */
-/*   Updated: 2021/01/13 08:04:00 by mlarboul         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:24:54 by mlarboul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mini_rt.h"
+#include "../../includes/minirt.h"
 
-void	init_color(t_mini_rt *rt)
+void	init_color(t_saver *rt)
 {
 	rt->tmp_color.r = 0;
 	rt->tmp_color.g = 0;

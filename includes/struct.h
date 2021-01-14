@@ -1,5 +1,17 @@
-#ifndef ELEMENTS_H
-# define ELEMENTS_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlarboul <mlarboul@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/14 09:34:34 by mlarboul          #+#    #+#             */
+/*   Updated: 2021/01/14 09:34:36 by mlarboul         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef STRUCT_H
+# define STRUCT_H
 
 # define LEFT_ARROW 65361
 # define RIGHT_ARROW 65363
@@ -123,40 +135,33 @@ typedef struct	s_obj
 	t_vec	up;
 }				t_obj;
 
-typedef struct	s_mini_rt
+typedef struct	s_saver
 {
 	void		*mlx;
 	void		*mlx_win;
 	t_image		*image;
 	int			pos;
-
 	int			k;
-
 	int			res_nb;
 	int			amb_nb;
 	int			cam_nb;
 	int			light_nb;
 	int			obj_nb;
-
 	int			curr_cam;
 	int			curr_light;
 	int			curr_obj;
-
-
 	t_vec		dir;
 	t_res		res;
 	t_ambient	amb;
 	t_camera	*cam;
 	t_light		*light;
 	t_obj		*obj;
-	
 	t_obj		*last_obj;
-
 	double		t;
 	double		vis_t1;
 	t_color		tmp_color;
 	double		intensity;
 	int			flag;
-}				t_mini_rt;
+}				t_saver;
 
 #endif
