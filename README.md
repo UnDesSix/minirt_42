@@ -17,6 +17,11 @@ Before running this program on your computer, make sure you have installed those
 `sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev`
 
 ***
+### Converter
+[Here's a program](https://github.com/UnDesSix/minirt_converter_42) to convert classic .obj into .rt. Make sure you object is made of triangles.
+
+
+***
 ### Objects
 
 * Ambient lightning: `A 0.2 255,255,255`
